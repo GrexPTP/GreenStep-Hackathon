@@ -23,15 +23,28 @@ const ProfilePage = () => {
                           </Card.Content>
                         </Card>
                         <Card style={{height: 200,margin: 10}} >
-                          <Card.Title title={'Coupon'} titleStyle={{color: 'red'}} />
+                          <Card.Title title={'Joined Events'} titleStyle={{color: 'red'}} />
                           <Card.Content>
                                 <Paragraph>
-                                    <Text style={{fontSize:18}}>Coupon Name: ABC Coupon {'\n'}</Text>
-                                    <Text>Received Date: 20/10/2020</Text>
+                                    <Text style={{fontSize:18}}>Event Name: ABC {'\n'}</Text>
+                                    <Text> Date joined: 20/10/2020</Text>
                                 </Paragraph>
                                 <Paragraph>
-                                    <Text style={{fontSize:18}}>Coupon Name: ABC Coupon {'\n'}</Text>
-                                    <Text>Received Date: 20/10/2020</Text>
+                                    <Text style={{fontSize:18}}>Event Name: ABC {'\n'}</Text>
+                                    <Text> Date joined: 20/10/2020</Text>
+                                </Paragraph>
+                          </Card.Content>
+                        </Card>
+                        <Card style={{height: 200,margin: 10}} >
+                          <Card.Title title={'Created Events'} titleStyle={{color: 'red'}} />
+                          <Card.Content>
+                                <Paragraph>
+                                    <Text style={{fontSize:18}}>Event Name: ABC {'\n'}</Text>
+                                    <Text> Date created: 20/10/2020</Text>
+                                </Paragraph>
+                                <Paragraph>
+                                    <Text style={{fontSize:18}}>Event Name: ABC {'\n'}</Text>
+                                    <Text> Date created: 20/10/2020</Text>
                                 </Paragraph>
                           </Card.Content>
                         </Card>
