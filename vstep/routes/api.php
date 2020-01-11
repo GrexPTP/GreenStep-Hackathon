@@ -21,7 +21,7 @@ Route::get('/home',function(Request $request){
     $feature = $all->sortByDesc(function($fea){
         return $fea->register_users()->count();
     })->take(5)->toArray();
-    return json_encode(array('newest' => $newest,'feature' => $feature));
+    return json_encode(array('newest' => array_values($newest),'feature' => array_values($feature)));
 });
 
 Route::get('/event/{id}', function($id){
