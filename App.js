@@ -1,4 +1,5 @@
 import React from 'react';
+import {setGlobal} from 'reactn'
 import {Ionicons} from '@expo/vector-icons';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { createAppContainer } from "react-navigation";
@@ -85,9 +86,14 @@ const AppNavigator = createBottomTabNavigator({
   );
 //const AppContainer = createAppContainer(AppNavigator)
 const AppContainer = createAppContainer(AuthenRouter)   
-const App = () => (
+const App = () => {
+  setGlobal({
+    user: null
+  })
+  return (
     <View style={{flex: 1}}>
         <AppContainer/>
     </View>
 )
+}
 export default App

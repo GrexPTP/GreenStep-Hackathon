@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {View, Dimensions} from 'react-native'
 import { Searchbar } from 'react-native-paper';
 import ProgramList from '../../components/ProgramList';
@@ -9,13 +9,22 @@ import DetailPage from '../DetailPage'
 import Constants from 'expo-constants';
 import { FAB } from 'react-native-paper';
 import CreateEventPage from '../CreateEventPage';
-
+import {useGlobal} from 'reactn';
 
 const MyEventsPage = ({navigation}) => {
     const [query, setQuery] = useState('')
+    const [items, setItems] = useState([])
+    const [user, setUser] = useGlobal('user')
     const GoToDetail = () => {
         navigation.navigate('Detail')
     }
+    useEffect(() => {
+        fetch(`http://13.76.100.205/api/my-events/${user.id}`)
+        .then(response => response.json())
+        .then(results => {
+          setUser(results)
+        })
+    }, [])
     const GoToAdd = () => {
       navigation.navigate('CreateEvent')
     }
@@ -27,7 +36,7 @@ const MyEventsPage = ({navigation}) => {
         onChangeText={query => {setQuery(query); }}
         value={query}
       />
-      <ProgramList handler={GoToDetail} items={config.sampleItems} width={Dimensions.get('window').width}/>
+      <ProgramList handler={GoToDetail} items={items} width={Dimensions.get('window').width}/>
       <FAB
     style={{
         position: 'absolute',
