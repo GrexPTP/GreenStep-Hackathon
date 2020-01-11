@@ -6,7 +6,7 @@ import {createBottomTabNavigator} from "react-navigation-tabs";
 import HomePage from './pages/HomePage';
 import EventsPage from './pages/EventsPage';
 import ProfilePage from './pages/ProfilePage';
-import RewardsPage from './pages/RewardsPage'
+import MyEventsPage from './pages/MyEventsPage'
 import IconWithBadge from './components/IconWithBadge'
 import Constants from 'expo-constants';
 import SignUpSignInPage from './pages/SignUpSignInPage'
@@ -14,8 +14,6 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import { createStackNavigator } from 'react-navigation-stack';
-import MapPage from './pages/MapPage';
-
 
 
 const getTabBarIcon = (navigation, focused, tintColor) => {
@@ -30,8 +28,8 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
       iconName = `ios-list`;
     } else if (routeName === 'Profile' ) {
       iconName = `ios-person`;
-    } else if (routeName === 'Rewards') {
-      iconName = `ios-pricetag`;
+    } else if (routeName === 'MyEvents') {
+      iconName = `ios-filing`;
     } else {
       iconName = `ios-map`
     }
@@ -50,11 +48,11 @@ const AppNavigator = createBottomTabNavigator({
     Events: {
       screen: EventsPage
     },
-    Rewards:{
-      screen: RewardsPage
-    },
-    Map: {
-      screen: MapPage
+    MyEvents:{
+      screen: MyEventsPage,
+      navigationOptions: {
+        tabBarLabel: 'My Events'
+      }
     },
     Profile: {
         screen: ProfilePage

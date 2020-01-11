@@ -9,6 +9,7 @@ import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import DetailPage from '../DetailPage'
 import Constants from 'expo-constants';
+
 const HomePage = ({navigation}) => {
     const [items, setItems] = useState(config.sampleItems)
     
@@ -24,6 +25,7 @@ const HomePage = ({navigation}) => {
             itemWidth={250} layout={'default'} renderItem={RenderItem} loop={true}/>
             <View style={{flex: 9, justifyContent:'space-around', alignItems: 'center'}}>
                 <ProgramList width={Dimensions.get('window').width} items={items} handler={GoToDetail}/>
+               
             </View>
         </View>
     )
