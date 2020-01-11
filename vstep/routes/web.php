@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'VStepController@index');
+
+Route::get('/create', 'VStepController@create');
 
 
 Route::group(['prefix' => 'admin'], function () {

@@ -9,7 +9,6 @@ use Illuminate\Notifications\Notifiable;
 class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
