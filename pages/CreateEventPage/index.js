@@ -1,10 +1,8 @@
 import React from 'react'
-import View from 'react-native'
-const CreateEventPage = () => {
-    return(
-        <View style={{flex: 1}}>
-
-        </View>
-    )
-}
+import {View, Text} from 'react-native'
+const CreateEventPage = () =>  (
+    <View style={{flex: 1}}>
+        <Text>aaa</Text>
+    </View>
+)
 export default CreateEventPage
