@@ -24,6 +24,10 @@
     color: #8e44ad;
 }
 
+.registered-color{
+    color: green;
+}
+
 .first-color {
     color: gold;
     font-weight: bold;

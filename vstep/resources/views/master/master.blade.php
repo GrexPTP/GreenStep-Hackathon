@@ -11,14 +11,10 @@
     <title>VStep - Challenge Onliny System</title>
 
     <!-- Bootstrap core CSS -->
-<<<<<<< HEAD
+
     <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/summernote/summernote-bs4.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/vstep.css">
-=======
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/summernote/summernote-bs4.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/vstep.css">
->>>>>>> d0219bbd06c5dd991d754da8d7ff57c7bd614a82
     <!-- Custom styles for this template -->
     <link href="/assets/css/heroic-features.css" rel="stylesheet">
 
@@ -29,7 +25,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Logo</a>
+        <a class="navbar-brand" href="{{ route('home') }}">Logo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -72,18 +68,14 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<<<<<<< HEAD
+
 <script src="/assets/vendor/jquery/jquery.min.js"></script>
 <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-=======
-<script src="assets/vendor/jquery/jquery.min.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/jquery/jquery.min.js"></script>
-<script src="assets/summernote/summernote-bs4.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/summernote/summernote-bs4.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 @yield('js')
->>>>>>> d0219bbd06c5dd991d754da8d7ff57c7bd614a82
 
 </body>
 

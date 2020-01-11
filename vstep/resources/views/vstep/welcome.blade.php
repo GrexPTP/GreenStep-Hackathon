@@ -1,5 +1,6 @@
 @extends('master.master')
 @section('content')
+
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
         <h1 class="display-3">Welcome to VStep Challenge !</h1>
@@ -92,13 +93,13 @@
                     <tbody>
                     @foreach ($events as $event)
                         <tr>
-                            <td>{{ $event->name }}</td>
+                            <td><a href="{{ route('challenge.view', $event->id)  }}">{{ $event->name }}</a></td>
                             <td><b>{{ $event->creator->name }}</b></td>
                             <td>{{ Carbon\Carbon::parse($event->start_date)->format('M/d/Y') }}
                                 {{ Carbon\Carbon::parse($event->start_time)->format('H:i') }}<sup><small>UTC+7</small></sup></td>
                             <td><a href="#">{{ '@'.$event->type }}</a></td>
                             @if ($event->status == 'pending')
-                                <td><b><i><a href="confirm-register.html" class="register-color">register</a></i></b></td>
+                                <td>@if($event->hasUser($my_account)) <span class="registered-color">registered</span> @else<b><i> <a href="{{ route('challenge.register', $event->id ) }}" class="register-color"> register @endif</a></i></b></td>
                             @else
                                 <td><i>Running</i></td>
                             @endif

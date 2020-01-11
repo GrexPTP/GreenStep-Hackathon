@@ -2,6 +2,7 @@
 @section('content')
     <div class="challenge-title">
         <h4>{{ $event->name }}  </h4>
+
     </div>
     <!-- Page Features -->
     <div class="row text-center">
@@ -15,9 +16,15 @@
                 $end_time_str = $event_end_date." ".$event_end_time;
                 $end_date = Carbon\Carbon::parse($end_time_str);
                 $now = Carbon\Carbon::now();
+                $diff = $now>$end_date;
 
             @endphp
-            <div class="text-right"><b>Time remaining <span id="timer"></span> </b></div>
+            @if ($diff==true)
+                <div class="text-center">Challenge is over, <span class="first-color">{{ $register_users->first()->name }}</span> is winner !</div>
+            @endif
+
+            <div class="text-right">@if($diff==true)<span style="border-radius: 2px; border: 1px solid black;"><b> End </b>: {{ $end_date }} </span>@else <b>Time remaining <span id="timer"></span> @endif </b></div>
+
             <table class="table table-bordered">
                 <thead class="thead">
                 <tr>
@@ -65,14 +72,15 @@
 
     <br>
     <br>
+    @if ($event->status !=='ended')
+        <script type="text/javascript">
+            function autoRefreshPage()
+            {
+                window.location = window.location.href;
+            }
+            setInterval('autoRefreshPage()', 10000);
+        </script>
 
-    <script type="text/javascript">
-        function autoRefreshPage()
-        {
-            window.location = window.location.href;
-        }
-        setInterval('autoRefreshPage()', 10000);
-    </script>
     <script>
         var countDownDate = new Date("{{ $end_date }}").getTime();
         var x = setInterval(function() {
@@ -89,4 +97,5 @@
             }
         }, 1000);
     </script>
+    @endif
 @endsection
