@@ -49,7 +49,7 @@ Route::get('/events',function(Request $request){
 });
 
 Route::get('/my-events/{id}', function($id){
-    return User::find($id)->belongsToMany('App\Event','user_event','event_id','user_id')->get();
+    return json_encode(User::find($id)->belongsToMany('App\Event','user_event','event_id','user_id')->get());
 });
 
 
