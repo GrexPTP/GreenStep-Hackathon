@@ -14,7 +14,7 @@ import { emailValidator, passwordValidator } from '../../core/utils';
 const LoginPage = ({ navigation }) => {
   const [email, setEmail] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
-
+  const [user, setUser] = useState(null)
   const _onLoginPressed = () => {
     const emailError = emailValidator(email.value);
     const passwordError = passwordValidator(password.value);
@@ -24,8 +24,15 @@ const LoginPage = ({ navigation }) => {
       setPassword({ ...password, error: passwordError });
       return;
     }
-
-    navigation.navigate('HomePage');
+    fetch('http://13.76.100.205/api/login', {
+        method: 'post',
+        body: JSON.stringify({email, password})
+    }).then(response => response.json())
+    .then(results => {
+        if (results)  navigation.navigate('HomePage');
+        return
+    })
+   
   };
 
   return (
