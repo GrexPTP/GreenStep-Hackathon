@@ -12,4 +12,8 @@ class VStepController extends Controller
         $events = Event::where('status', 'pending')->orWhere('status', 'started')->get();
         return view('vstep.welcome', compact('events'));
     }
+
+    public function create(){
+        return view('vstep.create-challenge');
+    }
 }

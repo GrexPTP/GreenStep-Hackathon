@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/summernote/summernote-bs4.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/vstep.css">
     <!-- Custom styles for this template -->
     <link href="assets/css/heroic-features.css" rel="stylesheet">
@@ -68,6 +69,11 @@
 <!-- Bootstrap core JavaScript -->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/summernote/summernote-bs4.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+@yield('js')
 
 </body>
 

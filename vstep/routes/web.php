@@ -13,6 +13,8 @@
 
 Route::get('/', 'VStepController@index');
 
+Route::get('/create', 'VStepController@create');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

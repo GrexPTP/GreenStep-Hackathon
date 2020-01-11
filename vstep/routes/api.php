@@ -17,11 +17,11 @@ use App\Event;
 use App\User;
 Route::get('/home',function(Request $request){
     $all = Event::all()->where('status','started');
-    $newest = $all->sortByDesc('start_date')->take(5);
+    $newest = $all->sortByDesc('start_date')->take(5)->toArray();
     $feature = $all->sortByDesc(function($fea){
         return $fea->register_users()->count();
-    })->take(5);
-    return array('newest' => $newest,'feature' => $feature);
+    })->take(5)->toArray();
+    return json_encode(array('newest' => $newest,'feature' => $feature));
 });
 
 Route::get('/event/{id}', function($id){
