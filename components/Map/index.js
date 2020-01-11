@@ -38,7 +38,19 @@ export default class Map extends React.Component {
     return (
       <View style={styles.container}>
         
-      
+        {this.state.location ? <MapView style={styles.mapStyle} initialRegion={{
+      latitude: this.state.location.coords.latitude,
+      longitude: this.state.location.coords.longitude,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    }}>
+      <Marker coordinate={{
+  latitude: this.state.location.coords.latitude,
+  longitude: this.state.location.coords.longitude,
+}}
+      title={'Current Position'}
+      description={'Your current position'}></Marker>
+    </MapView> : null }
         
       </View>
     );

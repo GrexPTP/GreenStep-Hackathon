@@ -14,6 +14,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import { createStackNavigator } from 'react-navigation-stack';
+import MapPage from './pages/MapPage';
 
 
 
@@ -31,6 +32,8 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
       iconName = `ios-person`;
     } else if (routeName === 'Rewards') {
       iconName = `ios-pricetag`;
+    } else {
+      iconName = `ios-map`
     }
     // You can return any component that you like here!
     return <IconComponent name={iconName} size={25} color={tintColor} />;
@@ -49,6 +52,9 @@ const AppNavigator = createBottomTabNavigator({
     },
     Rewards:{
       screen: RewardsPage
+    },
+    Map: {
+      screen: MapPage
     },
     Profile: {
         screen: ProfilePage
