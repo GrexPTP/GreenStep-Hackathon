@@ -2,11 +2,13 @@ import React from "react";
 import { Pedometer } from "expo-sensors";
 import { StyleSheet, Text, View } from "react-native";
 import AnimatedProgressWheel from 'react-native-progress-wheel';
+import { Button } from "react-native-paper";
 export default class Pedo extends React.Component {
   state = {
     isPedometerAvailable: "checking",
     pastStepCount: 0,
-    currentStepCount: 0
+    currentStepCount: 0,
+    totalStep : 1
   };
 
   componentDidMount() {
@@ -18,8 +20,12 @@ export default class Pedo extends React.Component {
   }
 
   _subscribe = () => {
+    const {totalStep} = this.state
+    const {setComplete} = this.props
     this._subscription = Pedometer.watchStepCount(result => {
-      this.setState({
+      if (totalStep == result.steps)
+        setComplete(true)
+        this.setState({
         currentStepCount: result.steps
       });
     });
@@ -43,6 +49,7 @@ export default class Pedo extends React.Component {
     Pedometer.getStepCountAsync(start, end).then(
       result => {
         this.setState({ pastStepCount: result.steps });
+        
       },
       error => {
         this.setState({
@@ -56,29 +63,23 @@ export default class Pedo extends React.Component {
     this._subscription && this._subscription.remove();
     this._subscription = null;
   };
-
   render() {
+    const {currentStepCount, totalStep} = this.state
     return (
-      <View style={styles.container}>
-          <AnimatedProgressWheel
-    size={120} 
-    width={20} 
-    color={'white'}
-    fullColor={'purple'}
-    progress={(this.state.currentStepCount / 1000) * 100}
-    backgroundColor={'pink'}/>
-        <Text>
-          Pedometer.isAvailableAsync(): {this.state.isPedometerAvailable}
-        </Text>
-        <Text>
-          Steps taken in the last 24 hours: {this.state.pastStepCount}
-        </Text>
-        <Text>Walk! And watch this go up: {this.state.currentStepCount}</Text>
-      </View>
+      currentStepCount == totalStep ? <Button mode="text" onPress={() => console.log('lo')}>Receive Coupon</Button>
+      : <View style={styles.container}>   
+      <AnimatedProgressWheel
+      size={120} 
+      width={20} 
+      color={'white'}
+      fullColor={'purple'}
+      progress={(currentStepCount / totalStep) * 100}
+      backgroundColor={'pink'}/>
+      <Text style={{color: 'grey', margin: 5}}>{`Step: ${currentStepCount}/${totalStep}`}</Text>
+     </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

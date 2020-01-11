@@ -11,7 +11,7 @@ import Pedo from '../../components/Pedo';
 const DetailPage = () => {
     const [items, setItems] = useState(config.sampleItems)
     const [joined, setJoined] = useState(false)
-    
+    const [complete, setComplete] = useState(false)
     const RenderItem = ({item, index}) => (
     <DescribedCard style={{flex: 1, flexDirection: 'column'}} {...item}/>
   )
@@ -39,19 +39,19 @@ const DetailPage = () => {
                                 </Paragraph>
                           </Card.Content>
                         </Card>
-                        {joined ? 
+                        {joined && !complete ? 
                         <React.Fragment>
                           <Button icon="cancel" mode="text" onPress={() => setJoined(false)}>
-    Cancel
-  </Button>
+                                            Cancel
+                          </Button>
   <View style={{flex: 1, alignItems:'center'}}>
   
-    {Pedometer.isAvailableAsync() ? <Pedo/> : <Text>This device is not supported</Text> }
+    {Pedometer.isAvailableAsync() ? <Pedo setComplete={setComplete}/> : <Text>This device is not supported</Text> }
     
   </View>
                         </React.Fragment>
-                         :  <Button icon="door" mode="text" onPress={() => setJoined(true)}>
-                         Participate
+                         :  <Button icon="door" mode="text" onPress={ complete ? () => console.log('a') : () => setJoined(true)}>
+                         {complete ? 'Receive Coupon' : 'Participare'}
                        </Button> }
                         
   
