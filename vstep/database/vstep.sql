@@ -11,7 +11,7 @@
  Target Server Version : 100408
  File Encoding         : 65001
 
- Date: 11/01/2020 17:30:47
+ Date: 11/01/2020 18:10:46
 */
 
 SET NAMES utf8mb4;
@@ -76,7 +76,7 @@ CREATE TABLE `data_rows`  (
   `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `order` int(11) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 90 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 91 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_rows
@@ -137,7 +137,7 @@ INSERT INTO `data_rows` VALUES (53, 6, 'created_at', 'timestamp', 'Created At', 
 INSERT INTO `data_rows` VALUES (54, 6, 'updated_at', 'timestamp', 'Updated At', 1, 0, 0, 0, 0, 0, NULL, 11);
 INSERT INTO `data_rows` VALUES (55, 6, 'image', 'image', 'Page Image', 0, 1, 1, 1, 1, 1, NULL, 12);
 INSERT INTO `data_rows` VALUES (56, 7, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1);
-INSERT INTO `data_rows` VALUES (57, 7, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2);
+INSERT INTO `data_rows` VALUES (57, 7, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{\"column\":4}', 2);
 INSERT INTO `data_rows` VALUES (58, 7, 'location', 'text', 'Location', 1, 1, 1, 1, 1, 1, '{}', 3);
 INSERT INTO `data_rows` VALUES (59, 7, 'description', 'text', 'Description', 0, 0, 1, 1, 1, 1, '{}', 4);
 INSERT INTO `data_rows` VALUES (60, 7, 'type', 'select_dropdown', 'Type', 1, 1, 1, 1, 1, 1, '{\"options\":{\"step\":\"Step Counter\",\"time\":\"Marathon\"}}', 5);
@@ -165,10 +165,10 @@ INSERT INTO `data_rows` VALUES (82, 9, 'step_belongsto_user_relationship', 'rela
 INSERT INTO `data_rows` VALUES (83, 9, 'step_belongsto_event_relationship', 'relationship', 'Event', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Event\",\"table\":\"events\",\"type\":\"belongsTo\",\"column\":\"event_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 7);
 INSERT INTO `data_rows` VALUES (84, 9, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 1, 0, 1, '{}', 6);
 INSERT INTO `data_rows` VALUES (85, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 8);
-INSERT INTO `data_rows` VALUES (86, 7, 'length', 'text', 'Length', 0, 0, 1, 1, 1, 1, '{}', 12);
 INSERT INTO `data_rows` VALUES (87, 7, 'start_date', 'date', 'Start Date', 1, 1, 1, 1, 1, 1, '{}', 6);
 INSERT INTO `data_rows` VALUES (88, 7, 'end_date', 'date', 'End Date', 1, 1, 1, 1, 1, 1, '{}', 8);
 INSERT INTO `data_rows` VALUES (89, 7, 'end_time', 'time', 'End Time', 1, 1, 1, 1, 1, 1, '{}', 9);
+INSERT INTO `data_rows` VALUES (90, 7, 'distance', 'number', 'Distance', 0, 1, 1, 1, 1, 1, '{}', 10);
 
 -- ----------------------------
 -- Table structure for data_types
@@ -202,7 +202,7 @@ INSERT INTO `data_types` VALUES (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-
 INSERT INTO `data_types` VALUES (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2020-01-11 02:55:21', '2020-01-11 02:55:21');
 INSERT INTO `data_types` VALUES (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2020-01-11 02:55:21', '2020-01-11 02:55:21');
 INSERT INTO `data_types` VALUES (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `data_types` VALUES (7, 'events', 'events', 'Event', 'Events', NULL, 'App\\Event', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 08:54:34', '2020-01-11 10:29:26');
+INSERT INTO `data_types` VALUES (7, 'events', 'events', 'Event', 'Events', NULL, 'App\\Event', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 08:54:34', '2020-01-11 10:48:42');
 INSERT INTO `data_types` VALUES (8, 'companies', 'companies', 'Company', 'Companies', NULL, 'App\\Company', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
 INSERT INTO `data_types` VALUES (9, 'steps', 'steps', 'Step', 'Steps', NULL, 'App\\Step', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 09:45:16', '2020-01-11 09:48:15');
 
@@ -220,7 +220,7 @@ CREATE TABLE `events`  (
   `start_time` time(0) NOT NULL,
   `end_date` date NOT NULL,
   `end_time` time(0) NOT NULL,
-  `length` double NULL DEFAULT NULL,
+  `distance` double NULL DEFAULT NULL,
   `step_amount` bigint(20) NULL DEFAULT NULL,
   `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '\"pending\"',
   `user_id` int(11) NOT NULL,
