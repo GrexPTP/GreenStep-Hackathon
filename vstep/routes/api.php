@@ -15,6 +15,18 @@ use Illuminate\Http\Request;
 
 use App\Event;
 use App\User;
+
+Route::post('/login', function(Request $request){
+    $user = User::where('email',$request->email)->first();
+    if ($user) {
+        if (Hash::check($request->password, $user->password))
+        {
+            return $user;
+        }
+    }
+    return null;
+});
+
 Route::get('/home',function(Request $request){
     $all = Event::all()->where('status','started');
     $newest = $all->sortByDesc('start_date')->take(5)->toArray();
