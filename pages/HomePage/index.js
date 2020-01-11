@@ -22,8 +22,10 @@ const HomePage = ({navigation}) => {
     const RenderItem = ({item, index}) => (
         <DescribedCard style={{flex: 1, flexDirection: 'column'}} handler={GoToDetail} {...item}/>
     )
-    const GoToDetail = () => {
-        navigation.navigate('Detail')
+    const GoToDetail = (id) => {
+        navigation.navigate('Detail', {
+            id
+        })
     }
     return(
         <View style={{flex: 10, flexDirection: 'column', paddingTop: Constants.statusBarHeight}}>
