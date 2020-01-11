@@ -21,7 +21,7 @@ Route::post('/login', function(Request $request){
     if ($user) {
         if (Hash::check($request->password, $user->password))
         {
-            return $user;
+            return json_encode($user);
         }
     }
     return null;
