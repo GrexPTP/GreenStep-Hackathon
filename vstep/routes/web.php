@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'VStepController@index');
+Route::get('/', 'VStepController@index')->name('home');
+Route::get('/challenge/{id}', 'VStepController@challenge');
 
 
 Route::group(['prefix' => 'admin'], function () {

@@ -51,9 +51,15 @@
                 <div class="card-body">
                     <div class="card mb-4" style="border: 0px solid rgba(0,0,0,.125) !important;">
                         <div class="card-body">
-                            <b class="card-title">Chạy Deadline Hackathon<sup><small> Upcoming </small></sup></b>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            @if ($events->count()>0)
+                                @php $hot_challenge = $events->first(); @endphp
+                            <b class="card-title">{{ $hot_challenge->name }}<sup><small> {{ $hot_challenge->status }} </small></sup></b>
+                            <p class="card-text">{{ $hot_challenge->description }}</p>
                             <a href="confirm-register.html" class="btn btn-primary">Register Now</a>
+                            @else
+                                <p>Be the first <b>challenger</b> today ! </p>
+                                <a href="confirm-register.html" class="btn btn-primary">Register Now</a>
+                            @endif
                         </div>
                     </div>
 
@@ -87,7 +93,7 @@
                     @foreach ($events as $event)
                         <tr>
                             <td>{{ $event->name }}</td>
-                            <td><b class="red-rank">{{ $event->creator->name }}</b></td>
+                            <td><b>{{ $event->creator->name }}</b></td>
                             <td>{{ Carbon\Carbon::parse($event->start_date)->format('M/d/Y') }}
                                 {{ Carbon\Carbon::parse($event->start_time)->format('H:i') }}<sup><small>UTC+7</small></sup></td>
                             <td><a href="#">{{ '@'.$event->type }}</a></td>
@@ -100,47 +106,17 @@
                         </tr>
                     @endforeach
 
-
-                    <tr>
-                        <td>30 Day Running Challenge - Travel with UpRace 2020</td>
-                        <td><b class="red-rank">Đại Học FPT</b></td>
-                        <td>Jan/10/2020
-                            21:05<sup><small>UTC+7</small></sup></td>
-                        <td><a href="#">@marathon</a></td>
-                        <td><i>Running</i></td>
-                        <td><a href="#">x6023</a></td>
-                    </tr>
-
-
-                    <tr>
-                        <td>Sun Life Vietnam - Resolution Run 2020</td>
-                        <td><b>touris</b></td>
-                        <td>Jan/10/2020
-                            21:05<sup><small>UTC+7</small></sup></td>
-                        <td><a href="#">@step</a></td>
-                        <td><a href="#"><u>Final Standing</u></a></td>
-                        <td><a href="#">x3223</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>Quang Binh Discovery Marathon 2020</td>
-                        <td><b>phatpt</b></td>
-                        <td>Jan/10/2020
-                            21:05<sup><small>UTC+7</small></sup></td>
-                        <td><a href="#">@marathon</a></td>
-                        <td><a href="#"><u>Final Standing</u></a></td>
-                        <td><a href="#">x10023</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>VnExpress Marathon Hanoi Midnight 2020</td>
-                        <td><b>duongmd</b></td>
-                        <td>Jan/10/2020
-                            21:05<sup><small>UTC+7</small></sup></td>
-                        <td><a href="#">@time</a></td>
-                        <td><a href="#"><u>Final Standing</u></a></td>
-                        <td><a href="#">x4323</a></td>
-                    </tr>
+                    @foreach ($events_pasts as $event)
+                        <tr>
+                            <td>{{ $event->name }}</td>
+                            <td><b>{{ $event->creator->name }}</b></td>
+                            <td>{{ Carbon\Carbon::parse($event->start_date)->format('M/d/Y') }}
+                                {{ Carbon\Carbon::parse($event->start_time)->format('H:i') }}<sup><small>UTC+7</small></sup></td>
+                            <td><a href="#">{{ '@'.$event->type }}</a></td>
+                            <td><a href="#"><u>Final Standing</u></a></td>
+                            <td><a href="#">x{{ $event->register_users()->get()->count() }}</a></td>
+                        </tr>
+                    @endforeach
 
                     </tbody>
                 </table>
