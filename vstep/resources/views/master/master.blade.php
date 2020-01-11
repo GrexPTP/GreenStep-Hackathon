@@ -72,7 +72,11 @@
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/summernote/summernote-bs4.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+<script>
+    $(document).ready(function(){
+        $('img').attr('src', $('img').attr('src').replace('localhost:8000', '13.76.100.205'));
+    })
+</script>
 @yield('js')
 
 </body>
