@@ -2,14 +2,13 @@ import React, {useState, useEffect} from 'react'
 import {View,  ScrollView} from 'react-native'
 import config from '../../constant';
 import Carousel from 'react-native-snap-carousel'
-import DescribedCard from '../../components/DescribedCard';
 import { Dimensions } from "react-native";
 import { Pedometer } from "expo-sensors";
 import {Card, Paragraph, Text, Button } from 'react-native-paper'
 import Pedo from '../../components/Pedo';
+import DescribedImageCard from '../../components/DescribedImageCard';
 const DetailPage = ({navigation}) => {
-    const [items, setItems] = useState(config.sampleItems)
-    const [event, setEvent] = useState({})
+    const [event, setEvent] = useState({images: "[]"})
     const [joined, setJoined] = useState(false)
     const [complete, setComplete] = useState(false)
     useEffect(() => {
@@ -20,14 +19,14 @@ const DetailPage = ({navigation}) => {
         })
     }, [])
     const RenderItem = ({item, index}) => (
-    <DescribedCard style={{flex: 1, flexDirection: 'column'}} {...item}/>
+    <DescribedImageCard style={{flex: 1, flexDirection: 'column'}} image={item}/>
   )
 
     return (
         <View style={{flex:1, flexDirection: "column"}}>
         <View style={{flex: 1}}>
-        <Carousel style={{flex: 1}} data={items} sliderWidth={Dimensions.get('window').width}
-            itemWidth={250} layout={'default'} renderItem={RenderItem} loop={true}/>
+        { <Carousel style={{flex: 1}} data={JSON.parse(event.images)} sliderWidth={Dimensions.get('window').width}
+            itemWidth={250} layout={'default'} renderItem={RenderItem} loop={true}/>}
         </View>
         <View style={{flex: 2, marginTop: 5}}>
         <ScrollView>
