@@ -49,7 +49,29 @@ Route::get('/events',function(Request $request){
 });
 
 Route::get('/my-events/{id}', function($id){
+    return json_encode(User::find($id)->hasMany('App\Event','user_id')->get());
+});
+
+Route::get('/join-events/{id}', function($id){
     return json_encode(User::find($id)->belongsToMany('App\Event','user_event','event_id','user_id')->get());
+});
+
+Route::get('/event/create', function(Request $request){
+    $event = new Event;
+    $event->name = $request->name;
+    $event->location = $request->location;
+    $event->description = $request->description;
+    $event->type = $request->type;
+    $event->start_date = $request->start_date;
+    $event->start_time = $request->start_time;
+    $event->end_date = $request->end_date;
+    $event->end_time = $request->end_time;
+    $event->distance = $request->distance;
+    $event->step_amount = $request->step_amount;
+    $event->user_id = $request->user_id;
+    $event->company_id = $request->company_id;
+    $event->save();
+    return json_encode($event);
 });
 
 
