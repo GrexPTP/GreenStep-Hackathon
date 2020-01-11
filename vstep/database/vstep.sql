@@ -11,7 +11,7 @@
  Target Server Version : 100408
  File Encoding         : 65001
 
- Date: 11/01/2020 17:00:20
+ Date: 11/01/2020 18:10:46
 */
 
 SET NAMES utf8mb4;
@@ -76,7 +76,7 @@ CREATE TABLE `data_rows`  (
   `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `order` int(11) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 86 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 91 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_rows
@@ -137,27 +137,26 @@ INSERT INTO `data_rows` VALUES (53, 6, 'created_at', 'timestamp', 'Created At', 
 INSERT INTO `data_rows` VALUES (54, 6, 'updated_at', 'timestamp', 'Updated At', 1, 0, 0, 0, 0, 0, NULL, 11);
 INSERT INTO `data_rows` VALUES (55, 6, 'image', 'image', 'Page Image', 0, 1, 1, 1, 1, 1, NULL, 12);
 INSERT INTO `data_rows` VALUES (56, 7, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1);
-INSERT INTO `data_rows` VALUES (57, 7, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2);
+INSERT INTO `data_rows` VALUES (57, 7, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{\"column\":4}', 2);
 INSERT INTO `data_rows` VALUES (58, 7, 'location', 'text', 'Location', 1, 1, 1, 1, 1, 1, '{}', 3);
-INSERT INTO `data_rows` VALUES (59, 7, 'description', 'text', 'Description', 0, 1, 1, 1, 1, 1, '{}', 4);
-INSERT INTO `data_rows` VALUES (60, 7, 'type', 'select_dropdown', 'Type', 1, 1, 1, 1, 1, 1, '{\"options\":{\"step\":\"Step Counter\",\"time\":\"Time Limit\"}}', 5);
-INSERT INTO `data_rows` VALUES (61, 7, 'start_time', 'timestamp', 'Start Time', 0, 1, 1, 1, 1, 1, '{}', 6);
-INSERT INTO `data_rows` VALUES (62, 7, 'duration', 'time', 'Duration', 0, 1, 1, 1, 1, 1, '{}', 7);
-INSERT INTO `data_rows` VALUES (63, 7, 'status', 'select_dropdown', 'Status', 1, 1, 1, 1, 1, 1, '{\"options\":{\"pending\":\"Pending\",\"started\":\"Started\",\"ended\":\"Ended\"}}', 8);
-INSERT INTO `data_rows` VALUES (64, 7, 'user_id', 'text', 'User Id', 1, 1, 1, 1, 1, 1, '{}', 9);
-INSERT INTO `data_rows` VALUES (65, 7, 'company_id', 'text', 'Company Id', 0, 1, 1, 1, 1, 1, '{}', 10);
-INSERT INTO `data_rows` VALUES (66, 7, 'event_belongsto_user_relationship', 'relationship', 'Creator', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 11);
-INSERT INTO `data_rows` VALUES (67, 7, 'event_belongsto_company_relationship', 'relationship', 'Company', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Company\",\"table\":\"companies\",\"type\":\"belongsTo\",\"column\":\"company_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 12);
+INSERT INTO `data_rows` VALUES (59, 7, 'description', 'text', 'Description', 0, 0, 1, 1, 1, 1, '{}', 4);
+INSERT INTO `data_rows` VALUES (60, 7, 'type', 'select_dropdown', 'Type', 1, 1, 1, 1, 1, 1, '{\"options\":{\"step\":\"Step Counter\",\"time\":\"Marathon\"}}', 5);
+INSERT INTO `data_rows` VALUES (61, 7, 'start_time', 'time', 'Start Time', 1, 1, 1, 1, 1, 1, '{}', 7);
+INSERT INTO `data_rows` VALUES (63, 7, 'status', 'select_dropdown', 'Status', 1, 0, 1, 1, 1, 1, '{\"options\":{\"pending\":\"Pending\",\"started\":\"Started\",\"ended\":\"Ended\"}}', 11);
+INSERT INTO `data_rows` VALUES (64, 7, 'user_id', 'text', 'User Id', 1, 1, 1, 1, 1, 1, '{}', 13);
+INSERT INTO `data_rows` VALUES (65, 7, 'company_id', 'text', 'Company Id', 0, 1, 1, 1, 1, 1, '{}', 14);
+INSERT INTO `data_rows` VALUES (66, 7, 'event_belongsto_user_relationship', 'relationship', 'Creator', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 15);
+INSERT INTO `data_rows` VALUES (67, 7, 'event_belongsto_company_relationship', 'relationship', 'Company', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Company\",\"table\":\"companies\",\"type\":\"belongsTo\",\"column\":\"company_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 17);
 INSERT INTO `data_rows` VALUES (68, 8, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1);
 INSERT INTO `data_rows` VALUES (69, 8, 'name', 'text', 'Name', 0, 1, 1, 1, 1, 1, '{}', 2);
-INSERT INTO `data_rows` VALUES (70, 7, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 1, 0, 1, '{}', 11);
-INSERT INTO `data_rows` VALUES (71, 7, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 12);
-INSERT INTO `data_rows` VALUES (72, 7, 'step_amount', 'number', 'Step Amount', 0, 1, 1, 1, 1, 1, '{}', 7);
+INSERT INTO `data_rows` VALUES (70, 7, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 1, 0, 1, '{}', 16);
+INSERT INTO `data_rows` VALUES (71, 7, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 18);
+INSERT INTO `data_rows` VALUES (72, 7, 'step_amount', 'number', 'Step Amount', 0, 0, 1, 1, 1, 1, '{}', 10);
 INSERT INTO `data_rows` VALUES (73, 1, 'user_belongstomany_event_relationship', 'relationship', 'Events', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Event\",\"table\":\"events\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"user_event\",\"pivot\":\"1\",\"taggable\":\"0\"}', 16);
 INSERT INTO `data_rows` VALUES (74, 1, 'phone', 'number', 'Phone', 0, 1, 1, 1, 1, 1, '{}', 8);
 INSERT INTO `data_rows` VALUES (75, 1, 'birthdate', 'date', 'Birthdate', 0, 1, 1, 1, 1, 1, '{}', 5);
 INSERT INTO `data_rows` VALUES (76, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 0, 0, 0, 0, 1, '{}', 11);
-INSERT INTO `data_rows` VALUES (77, 7, 'event_belongstomany_user_relationship', 'relationship', 'Participants', 0, 0, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"user_event\",\"pivot\":\"1\",\"taggable\":\"0\"}', 13);
+INSERT INTO `data_rows` VALUES (77, 7, 'event_belongstomany_user_relationship', 'relationship', 'Participants', 0, 0, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"user_event\",\"pivot\":\"1\",\"taggable\":\"0\"}', 19);
 INSERT INTO `data_rows` VALUES (78, 9, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1);
 INSERT INTO `data_rows` VALUES (79, 9, 'event_id', 'number', 'Event Id', 0, 1, 1, 1, 1, 1, '{}', 3);
 INSERT INTO `data_rows` VALUES (80, 9, 'user_id', 'number', 'User Id', 0, 1, 1, 1, 1, 1, '{}', 2);
@@ -166,6 +165,10 @@ INSERT INTO `data_rows` VALUES (82, 9, 'step_belongsto_user_relationship', 'rela
 INSERT INTO `data_rows` VALUES (83, 9, 'step_belongsto_event_relationship', 'relationship', 'Event', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Event\",\"table\":\"events\",\"type\":\"belongsTo\",\"column\":\"event_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 7);
 INSERT INTO `data_rows` VALUES (84, 9, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 1, 0, 1, '{}', 6);
 INSERT INTO `data_rows` VALUES (85, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 8);
+INSERT INTO `data_rows` VALUES (87, 7, 'start_date', 'date', 'Start Date', 1, 1, 1, 1, 1, 1, '{}', 6);
+INSERT INTO `data_rows` VALUES (88, 7, 'end_date', 'date', 'End Date', 1, 1, 1, 1, 1, 1, '{}', 8);
+INSERT INTO `data_rows` VALUES (89, 7, 'end_time', 'time', 'End Time', 1, 1, 1, 1, 1, 1, '{}', 9);
+INSERT INTO `data_rows` VALUES (90, 7, 'distance', 'number', 'Distance', 0, 1, 1, 1, 1, 1, '{}', 10);
 
 -- ----------------------------
 -- Table structure for data_types
@@ -199,7 +202,7 @@ INSERT INTO `data_types` VALUES (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-
 INSERT INTO `data_types` VALUES (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2020-01-11 02:55:21', '2020-01-11 02:55:21');
 INSERT INTO `data_types` VALUES (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2020-01-11 02:55:21', '2020-01-11 02:55:21');
 INSERT INTO `data_types` VALUES (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `data_types` VALUES (7, 'events', 'events', 'Event', 'Events', NULL, 'App\\Event', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 08:54:34', '2020-01-11 09:38:18');
+INSERT INTO `data_types` VALUES (7, 'events', 'events', 'Event', 'Events', NULL, 'App\\Event', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 08:54:34', '2020-01-11 10:48:42');
 INSERT INTO `data_types` VALUES (8, 'companies', 'companies', 'Company', 'Companies', NULL, 'App\\Company', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
 INSERT INTO `data_types` VALUES (9, 'steps', 'steps', 'Step', 'Steps', NULL, 'App\\Step', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 09:45:16', '2020-01-11 09:48:15');
 
@@ -213,9 +216,12 @@ CREATE TABLE `events`  (
   `location` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `start_time` datetime(0) NULL DEFAULT NULL,
+  `start_date` date NOT NULL,
+  `start_time` time(0) NOT NULL,
+  `end_date` date NOT NULL,
+  `end_time` time(0) NOT NULL,
+  `distance` double NULL DEFAULT NULL,
   `step_amount` bigint(20) NULL DEFAULT NULL,
-  `duration` int(255) NULL DEFAULT NULL,
   `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '\"pending\"',
   `user_id` int(11) NOT NULL,
   `company_id` int(11) NULL DEFAULT NULL,
@@ -227,7 +233,7 @@ CREATE TABLE `events`  (
 -- ----------------------------
 -- Records of events
 -- ----------------------------
-INSERT INTO `events` VALUES (1, 'Event 1', 'Can Tho', 'this is the description number 1', 'step', '2020-01-20 16:45:00', 10000, NULL, 'pending', 1, NULL, '2020-01-11 09:15:00', '2020-01-11 09:38:28');
+INSERT INTO `events` VALUES (1, 'Event 1', 'Can Tho', 'this is the description number 1', 'step', '2020-01-20', '00:00:00', '2020-01-20', '13:00:00', NULL, 10000, 'pending', 1, NULL, '2020-01-11 09:15:00', '2020-01-11 10:30:09');
 
 -- ----------------------------
 -- Table structure for failed_jobs
