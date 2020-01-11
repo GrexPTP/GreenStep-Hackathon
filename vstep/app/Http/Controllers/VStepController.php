@@ -27,4 +27,8 @@ class VStepController extends Controller
         $register_users = $register_users->sortBy('total_steps');
         return view('vstep.challenge', compact('event', 'register_users'));
     }
+
+    public function create(){
+        return view('vstep.create-challenge');
+    }
 }

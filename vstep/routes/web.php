@@ -14,6 +14,8 @@
 Route::get('/', 'VStepController@index')->name('home');
 Route::get('/challenge/{id}', 'VStepController@challenge');
 
+Route::get('/create', 'VStepController@create');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
