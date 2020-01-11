@@ -24,6 +24,21 @@
     color: #8e44ad;
 }
 
+.first-color {
+    color: gold;
+    font-weight: bold;
+}
+
+.second-color {
+    color : #d3d3d3;
+    font-weight: bold;
+}
+
+.third-color {
+    color : #cd7f32;
+    font-weight: bold;
+}
+
 .upcoming-challenge {
     background-color: #2e5a99;
     position: relative;

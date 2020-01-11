@@ -11,11 +11,16 @@
     <title>VStep - Challenge Onliny System</title>
 
     <!-- Bootstrap core CSS -->
+<<<<<<< HEAD
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/vstep.css">
+=======
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/summernote/summernote-bs4.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/vstep.css">
+>>>>>>> d0219bbd06c5dd991d754da8d7ff57c7bd614a82
     <!-- Custom styles for this template -->
-    <link href="assets/css/heroic-features.css" rel="stylesheet">
+    <link href="/assets/css/heroic-features.css" rel="stylesheet">
 
 </head>
 
@@ -67,6 +72,10 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
+<<<<<<< HEAD
+<script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+=======
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -74,6 +83,7 @@
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 @yield('js')
+>>>>>>> d0219bbd06c5dd991d754da8d7ff57c7bd614a82
 
 </body>
 
