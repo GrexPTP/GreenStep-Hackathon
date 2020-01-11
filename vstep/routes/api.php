@@ -19,7 +19,7 @@ Route::get('/home',function(Request $request){
     $all = Event::all()->where('status','started');
     $newest = $all->sortByDesc('start_date')->take(5);
     $feature = $all->sortByDesc(function($fea){
-        return $fea->belongsToMany('App\User','user_event','user_id','event_id')->count();
+        return $fea->register_users()->count();
     })->take(5);
     return array('newest' => $newest,'feature' => $feature);
 });
