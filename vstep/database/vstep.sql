@@ -11,7 +11,7 @@
  Target Server Version : 100408
  File Encoding         : 65001
 
- Date: 11/01/2020 16:39:27
+ Date: 11/01/2020 17:00:20
 */
 
 SET NAMES utf8mb4;
@@ -76,7 +76,7 @@ CREATE TABLE `data_rows`  (
   `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `order` int(11) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 78 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 86 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_rows
@@ -158,6 +158,14 @@ INSERT INTO `data_rows` VALUES (74, 1, 'phone', 'number', 'Phone', 0, 1, 1, 1, 1
 INSERT INTO `data_rows` VALUES (75, 1, 'birthdate', 'date', 'Birthdate', 0, 1, 1, 1, 1, 1, '{}', 5);
 INSERT INTO `data_rows` VALUES (76, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 0, 0, 0, 0, 1, '{}', 11);
 INSERT INTO `data_rows` VALUES (77, 7, 'event_belongstomany_user_relationship', 'relationship', 'Participants', 0, 0, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"user_event\",\"pivot\":\"1\",\"taggable\":\"0\"}', 13);
+INSERT INTO `data_rows` VALUES (78, 9, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1);
+INSERT INTO `data_rows` VALUES (79, 9, 'event_id', 'number', 'Event Id', 0, 1, 1, 1, 1, 1, '{}', 3);
+INSERT INTO `data_rows` VALUES (80, 9, 'user_id', 'number', 'User Id', 0, 1, 1, 1, 1, 1, '{}', 2);
+INSERT INTO `data_rows` VALUES (81, 9, 'total_steps', 'number', 'Total Steps', 1, 1, 1, 1, 1, 1, '{}', 4);
+INSERT INTO `data_rows` VALUES (82, 9, 'step_belongsto_user_relationship', 'relationship', 'User', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 5);
+INSERT INTO `data_rows` VALUES (83, 9, 'step_belongsto_event_relationship', 'relationship', 'Event', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Event\",\"table\":\"events\",\"type\":\"belongsTo\",\"column\":\"event_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 7);
+INSERT INTO `data_rows` VALUES (84, 9, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 1, 0, 1, '{}', 6);
+INSERT INTO `data_rows` VALUES (85, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 8);
 
 -- ----------------------------
 -- Table structure for data_types
@@ -180,7 +188,7 @@ CREATE TABLE `data_types`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_types
@@ -193,6 +201,7 @@ INSERT INTO `data_types` VALUES (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-
 INSERT INTO `data_types` VALUES (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2020-01-11 02:55:22', '2020-01-11 02:55:22');
 INSERT INTO `data_types` VALUES (7, 'events', 'events', 'Event', 'Events', NULL, 'App\\Event', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 08:54:34', '2020-01-11 09:38:18');
 INSERT INTO `data_types` VALUES (8, 'companies', 'companies', 'Company', 'Companies', NULL, 'App\\Company', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
+INSERT INTO `data_types` VALUES (9, 'steps', 'steps', 'Step', 'Steps', NULL, 'App\\Step', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 09:45:16', '2020-01-11 09:48:15');
 
 -- ----------------------------
 -- Table structure for events
@@ -254,27 +263,24 @@ CREATE TABLE `menu_items`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `menu_items_menu_id_foreign`(`menu_id`) USING BTREE,
   CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menu_items
 -- ----------------------------
 INSERT INTO `menu_items` VALUES (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2020-01-11 02:55:16', '2020-01-11 02:55:16', 'voyager.dashboard', NULL);
-INSERT INTO `menu_items` VALUES (2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 5, '2020-01-11 02:55:16', '2020-01-11 02:55:16', 'voyager.media.index', NULL);
-INSERT INTO `menu_items` VALUES (3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 3, '2020-01-11 02:55:16', '2020-01-11 02:55:16', 'voyager.users.index', NULL);
-INSERT INTO `menu_items` VALUES (4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 2, '2020-01-11 02:55:17', '2020-01-11 02:55:17', 'voyager.roles.index', NULL);
-INSERT INTO `menu_items` VALUES (5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 9, '2020-01-11 02:55:17', '2020-01-11 02:55:17', NULL, NULL);
-INSERT INTO `menu_items` VALUES (6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 10, '2020-01-11 02:55:17', '2020-01-11 02:55:17', 'voyager.menus.index', NULL);
-INSERT INTO `menu_items` VALUES (7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 11, '2020-01-11 02:55:17', '2020-01-11 02:55:17', 'voyager.database.index', NULL);
-INSERT INTO `menu_items` VALUES (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 12, '2020-01-11 02:55:17', '2020-01-11 02:55:17', 'voyager.compass.index', NULL);
-INSERT INTO `menu_items` VALUES (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 13, '2020-01-11 02:55:17', '2020-01-11 02:55:17', 'voyager.bread.index', NULL);
-INSERT INTO `menu_items` VALUES (10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 14, '2020-01-11 02:55:17', '2020-01-11 02:55:17', 'voyager.settings.index', NULL);
-INSERT INTO `menu_items` VALUES (11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, NULL, 8, '2020-01-11 02:55:21', '2020-01-11 02:55:21', 'voyager.categories.index', NULL);
-INSERT INTO `menu_items` VALUES (12, 1, 'Posts', '', '_self', 'voyager-news', NULL, NULL, 6, '2020-01-11 02:55:21', '2020-01-11 02:55:21', 'voyager.posts.index', NULL);
-INSERT INTO `menu_items` VALUES (13, 1, 'Pages', '', '_self', 'voyager-file-text', NULL, NULL, 7, '2020-01-11 02:55:22', '2020-01-11 02:55:22', 'voyager.pages.index', NULL);
-INSERT INTO `menu_items` VALUES (14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 13, '2020-01-11 02:55:23', '2020-01-11 02:55:23', 'voyager.hooks', NULL);
-INSERT INTO `menu_items` VALUES (15, 1, 'Events', '', '_self', NULL, NULL, NULL, 15, '2020-01-11 08:54:34', '2020-01-11 08:54:34', 'voyager.events.index', NULL);
-INSERT INTO `menu_items` VALUES (16, 1, 'Companies', '', '_self', NULL, NULL, NULL, 16, '2020-01-11 08:57:53', '2020-01-11 08:57:53', 'voyager.companies.index', NULL);
+INSERT INTO `menu_items` VALUES (3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 2, '2020-01-11 02:55:16', '2020-01-11 09:52:31', 'voyager.users.index', NULL);
+INSERT INTO `menu_items` VALUES (4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, 5, 2, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.roles.index', NULL);
+INSERT INTO `menu_items` VALUES (5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 6, '2020-01-11 02:55:17', '2020-01-11 09:52:36', NULL, NULL);
+INSERT INTO `menu_items` VALUES (6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 3, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.menus.index', NULL);
+INSERT INTO `menu_items` VALUES (7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 4, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.database.index', NULL);
+INSERT INTO `menu_items` VALUES (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 5, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.compass.index', NULL);
+INSERT INTO `menu_items` VALUES (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 6, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.bread.index', NULL);
+INSERT INTO `menu_items` VALUES (10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, 5, 1, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.settings.index', NULL);
+INSERT INTO `menu_items` VALUES (14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 7, '2020-01-11 02:55:23', '2020-01-11 09:52:36', 'voyager.hooks', NULL);
+INSERT INTO `menu_items` VALUES (15, 1, 'Events', '', '_self', 'voyager-play', '#000000', NULL, 3, '2020-01-11 08:54:34', '2020-01-11 09:53:37', 'voyager.events.index', 'null');
+INSERT INTO `menu_items` VALUES (16, 1, 'Companies', '', '_self', 'voyager-company', '#000000', NULL, 4, '2020-01-11 08:57:53', '2020-01-11 09:53:42', 'voyager.companies.index', 'null');
+INSERT INTO `menu_items` VALUES (17, 1, 'Steps', '', '_self', 'voyager-paw', '#000000', NULL, 5, '2020-01-11 09:45:16', '2020-01-11 09:53:46', 'voyager.steps.index', 'null');
 
 -- ----------------------------
 -- Table structure for menus
@@ -441,6 +447,11 @@ INSERT INTO `permission_role` VALUES (48, 1);
 INSERT INTO `permission_role` VALUES (49, 1);
 INSERT INTO `permission_role` VALUES (50, 1);
 INSERT INTO `permission_role` VALUES (51, 1);
+INSERT INTO `permission_role` VALUES (52, 1);
+INSERT INTO `permission_role` VALUES (53, 1);
+INSERT INTO `permission_role` VALUES (54, 1);
+INSERT INTO `permission_role` VALUES (55, 1);
+INSERT INTO `permission_role` VALUES (56, 1);
 
 -- ----------------------------
 -- Table structure for permissions
@@ -454,7 +465,7 @@ CREATE TABLE `permissions`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `permissions_key_index`(`key`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 52 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of permissions
@@ -510,6 +521,11 @@ INSERT INTO `permissions` VALUES (48, 'read_companies', 'companies', '2020-01-11
 INSERT INTO `permissions` VALUES (49, 'edit_companies', 'companies', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
 INSERT INTO `permissions` VALUES (50, 'add_companies', 'companies', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
 INSERT INTO `permissions` VALUES (51, 'delete_companies', 'companies', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
+INSERT INTO `permissions` VALUES (52, 'browse_steps', 'steps', '2020-01-11 09:45:16', '2020-01-11 09:45:16');
+INSERT INTO `permissions` VALUES (53, 'read_steps', 'steps', '2020-01-11 09:45:16', '2020-01-11 09:45:16');
+INSERT INTO `permissions` VALUES (54, 'edit_steps', 'steps', '2020-01-11 09:45:16', '2020-01-11 09:45:16');
+INSERT INTO `permissions` VALUES (55, 'add_steps', 'steps', '2020-01-11 09:45:16', '2020-01-11 09:45:16');
+INSERT INTO `permissions` VALUES (56, 'delete_steps', 'steps', '2020-01-11 09:45:16', '2020-01-11 09:45:16');
 
 -- ----------------------------
 -- Table structure for posts
@@ -602,9 +618,16 @@ CREATE TABLE `steps`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `event_id` int(11) NULL DEFAULT NULL,
   `user_id` int(11) NULL DEFAULT NULL,
-  `total_steps` int(255) NULL DEFAULT NULL,
+  `total_steps` int(255) NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of steps
+-- ----------------------------
+INSERT INTO `steps` VALUES (1, 1, 1, 1000, '2020-01-11 09:53:04', '2020-01-11 09:53:04');
 
 -- ----------------------------
 -- Table structure for translations
