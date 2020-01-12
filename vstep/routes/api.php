@@ -37,7 +37,7 @@ Route::get('/home',function(Request $request){
 });
 
 Route::get('/event/{id}', function($id){
-    return json_encode(Event::find($id));
+    return json_encode(Event::leftJoin('companies','events.company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->find($id));
 });
 
 Route::get('/user/{id}', function($id){
@@ -45,18 +45,18 @@ Route::get('/user/{id}', function($id){
 });
 
 Route::get('/events',function(Request $request){
-    return json_encode(array_values(Event::all()->toArray()));
+    return json_encode(array_values(Event::leftJoin('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->get()->toArray()));
 });
 
 Route::get('/my-events/{id}', function($id){
-    return json_encode(User::find($id)->hasMany('App\Event','user_id')->get());
+    return json_encode(User::find($id)->hasMany('App\Event','user_id')->leftJoin('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->get());
 });
 
 Route::get('/join-events/{id}', function($id){
-    return json_encode(User::find($id)->belongsToMany('App\Event','user_event','event_id','user_id')->get());
+    return json_encode(User::find($id)->belongsToMany('App\Event','user_event','event_id','user_id')->leftJoin('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->get());
 });
 
-Route::get('/event/create', function(Request $request){
+Route::get('/event/create/{id}', function(Request $request, $id){
     $event = new Event;
     $event->name = $request->name;
     $event->location = $request->location;
@@ -68,7 +68,7 @@ Route::get('/event/create', function(Request $request){
     $event->end_time = $request->end_time;
     $event->distance = $request->distance;
     $event->step_amount = $request->step_amount;
-    $event->user_id = $request->user_id;
+    $event->user_id = $id;
     $event->company_id = $request->company_id;
     $event->save();
     return json_encode($event);
