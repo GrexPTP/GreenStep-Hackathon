@@ -36,8 +36,10 @@ Route::get('/home',function(Request $request){
     return json_encode(array('newest' => array_values($newest),'feature' => array_values($feature)));
 });
 
-Route::get('/event/{id}', function($id){
-    return json_encode(Event::leftJoin('companies','events.company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->find($id));
+Route::get('/event/{id}', function(Request $request, $id){
+    $event = Event::leftJoin('companies','events.company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->find($id);
+    $event->joined = $event->belongsToMany('App\User','user_event','user_id','event_id')->where('id',$request->userID)->count() != 0;
+    return json_encode($event);
 });
 
 Route::get('/user/{id}', function($id){
