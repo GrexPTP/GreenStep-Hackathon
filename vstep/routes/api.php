@@ -56,6 +56,10 @@ Route::get('/join-events/{id}', function($id){
     return json_encode(User::find($id)->belongsToMany('App\Event','user_event','event_id','user_id')->leftJoin('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->get());
 });
 
+Route::get('/join-events/{user_id}/{event_id}', function($user_id,$event_id){
+    return json_encode(Event::find($event_id)->belongsToMany('App\User','user_event','user_id','event_id')->where('id',$user_id)->count() != 0);
+});
+
 Route::get('/event/create/{id}', function(Request $request, $id){
     $event = new Event;
     $event->name = $request->name;
