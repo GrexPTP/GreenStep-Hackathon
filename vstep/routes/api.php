@@ -106,7 +106,7 @@ Route::get('/finish_step', function(Request $request){
     $step->total_steps = $request->total_steps;
     $step->finish_time = Carbon::now();
     $step->save();
-    return json_encode($step->finish_time->format('h:i:s'));
+    return json_encode(array('finish_time' => $step->finish_time->format('h:i:s')));
 });
 
 function distance($lat1, $lon1, $lat2, $lon2, $unit) {
