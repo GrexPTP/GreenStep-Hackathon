@@ -10,10 +10,10 @@ import Paragraph from '../../components/Paragraph';
 const SignUpSignInPage = ({ navigation }) => (
   <Background>
     <Logo />
-    <Header>Login Template</Header>
+    <Header>Login</Header>
 
     <Paragraph>
-      The easiest way to start with your amazing application.
+      Save your health, save the environment
     </Paragraph>
     <Button mode="contained" onPress={() => navigation.navigate('LoginPage')}>
       Login

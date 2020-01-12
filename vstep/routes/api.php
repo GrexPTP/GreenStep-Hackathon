@@ -18,6 +18,7 @@ use App\User;
 use App\Company;
 use App\Step;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/login', function(Request $request){
     $user = User::where('email',$request->email)->first();
@@ -97,6 +98,17 @@ Route::get('/finish_race',function(Request $request){
     $end_lat = $request->endLat ?? 21.027763;
     $result = distance($start_lat,$start_long,$end_lat,$end_long,"K");
     return json_encode(array('result'=>$result < 0.001));
+});
+
+Route::get('/participate',function(Request $request){
+    $user_id = $request->user_id;
+    $event_id = $request->event_id;
+    DB::table('user_event')->insert([
+        ['user_id' => $user_id,
+        'event_id' => $event_id,]
+    ]);
+
+    return json_encode(array('result' => true));
 });
 
 Route::get('/finish_step', function(Request $request){

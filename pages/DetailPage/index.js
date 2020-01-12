@@ -47,9 +47,12 @@ const DetailPage = ({navigation}) => {
         setLocation(location)
         
       };
-      const finishStep = () => {
-          setMessage('Congratulation!, You complete the race')
-          setVisible(true)
+      const finishStep = (step) => {
+          fetch(`http://13.76.100.205/api/finish_step?user_id=${user.id}&event_id=${event.id}&total_steps=${step}`).then(response => {
+            setMessage('Congratulation!, You complete the race')
+            setVisible(true)
+          })
+          
       }
     const RenderItem = ({item, index}) => (
     <DescribedImageCard style={{flex: 1, flexDirection: 'column'}} image={item}/>
@@ -94,13 +97,18 @@ const DetailPage = ({navigation}) => {
                                             Cancel
                           </Button>
                     <View style={{flex: 1, alignItems:'center'}}>
-                            {event.step_amount && Pedometer.isAvailableAsync() ? <Pedo finishStep={finishStep} setComplete={setComplete} totalStep={event.step_amount}/>  : <Button icon="check" mode="text" onPress={() => finishRace(user.id, event.id)}>Finish</Button>  }
+                        {event.step_amount && Pedometer.isAvailableAsync() && !complete && <Pedo   setComplete={setComplete} user_id={user.id} event_id={event.id} totalStep={event.step_amount}/>  }  
+                        {!event.step_amount && <Button icon="check" mode="text" onPress={() => finishRace(user.id, event.id)}>Finish</Button> }
                             
                                 
                             
                     </View>
                         </React.Fragment>
-                         :  <Button icon="door" mode="text" onPress={ complete ? () => console.log('a') : () => setJoined(true)}>
+                         :  <Button icon="door" mode="text" onPress={ complete ? () => console.log('a') : () => {
+                            setJoined(true)
+                            fetch(`http://13.76.100.205/api/participate?user_id=${user.id}&event_id=${event.id}`)
+                            
+                         } }>
                          {complete ? 'Receive Coupon' : 'Participate'}
                        </Button> } 
                        

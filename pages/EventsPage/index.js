@@ -7,6 +7,7 @@ import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import DetailPage from '../DetailPage'
 import Constants from 'expo-constants';
+
 const EventsPage = ({navigation}) => {
     const [query, setQuery] = useState('')
     const [items, setItems] = useState([])
