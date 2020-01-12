@@ -70,7 +70,6 @@
 
 <script src="/assets/vendor/jquery/jquery.min.js"></script>
 <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/vendor/jquery/jquery.min.js"></script>
 <script src="/assets/summernote/summernote-bs4.js"></script>
 
 @yield('js')
