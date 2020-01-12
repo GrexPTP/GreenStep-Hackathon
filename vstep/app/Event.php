@@ -31,7 +31,7 @@ class Event extends Model
             $user->total_step = $total_steps;
         }
         $registered_users = $registered_users->get()->sortBy('total_step',  SORT_REGULAR,  true)->values();
-        if ($registered_users->count()<=5){
+        if ($registered_users->count()<=20){
             $i = $registered_users->count();
             foreach ($registered_users as $key => $user){
                 $point = $i*10;
@@ -46,6 +46,8 @@ class Event extends Model
                 $i--;
             }
         }
+
+
 
     }
 }

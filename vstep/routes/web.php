@@ -18,6 +18,8 @@ Route::get('/challenge/{id}/register', 'VStepController@register')->name('challe
 Route::post('/challenge/{id}/register', 'VStepController@postRegister')->name('challenge.confirm');
 Route::get('/create/challenge', 'VStepController@create')->name('challenge.create');
 Route::post('/create/challenge', 'VStepController@postCreate')->name('challenge.postCreate');
+Route::get('/rank-runner', 'VStepController@rank')->name('account.rank');
+
 
 Route::get('/account/challenges', 'AccountController@challenges')->name('account.challenges');
 Route::get('/account/common', 'AccountController@common')->name('account.common');
@@ -25,6 +27,7 @@ Route::get('/account/info', 'AccountController@info')->name('account.info');
 Route::post('/account/info', 'AccountController@postInfo')->name('account.postInfo');
 Route::get('/register', 'AccountController@register')->name('account.register');
 Route::get('/register', 'AccountController@postRegister')->name('account.postRegister');
+
 
 
 

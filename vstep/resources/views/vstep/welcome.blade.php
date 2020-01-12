@@ -22,9 +22,20 @@
                         </thead>
                         <tbody>
                         @foreach ($ranking as $key => $rank)
+                            @php
+                                if($rank->rank <=3){
+                                    $title_color = "#ff9900; font-weight: 500;";
+                                } elseif ($rank->rank>3 && $rank->rank<6){
+                                    $title_color = "pink; font-weight: 500;";
+                                } elseif ($rank->rank>=6 && $rank<=10) {
+                                    $title_color = "#6600ff; font-weight: 500;";
+                                } else {
+                                    $title_color = "black; font-weight: 500;";
+                                }
+                            @endphp
                             <tr>
                                 <th scope="row">{{ $rank->rank }}</th>
-                                <td>{{ App\User::find($rank->user_id)->name }}</td>
+                                <td style="color: {{ $title_color }}">{{ App\User::find($rank->user_id)->name }}</td>
                                 <td>{{ $rank->challenges }}</td>
                                 <td>{{ $rank->total }}</td>
                             </tr>
@@ -69,7 +80,7 @@
     </div>
     <!-- /.row -->
 
-    <h2>Current or Upcoming Contests <a class="btn btn-success float-right" style="font-size: 21px;" href="{{ route('challenge.create') }}"><small>Create your own!</small></a></h2>
+    <h2>Current or Upcoming Contests <a class="btn btn-success btn-sm float-right" style="font-size: 21px;" href="{{ route('challenge.create') }}"><small>Create your own!</small></a></h2>
     <!-- Page Features -->
     <div class="row text-center">
         <div class="col-lg-12 col-md-12 mb-12">

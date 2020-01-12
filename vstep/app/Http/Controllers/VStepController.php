@@ -9,6 +9,7 @@ use Auth;
 use Carbon\Carbon;
 use App\User;
 use App\Point;
+use App\AccountRank;
 use DB;
 class VStepController extends Controller
 
@@ -144,5 +145,10 @@ class VStepController extends Controller
         $ev->user_id = Auth::id();
         $ev->save();
         return redirect()->route('home');
+    }
+
+    public function rank(){
+        $data = AccountRank::all();
+        return view('vstep.rank', compact('data'));
     }
 }

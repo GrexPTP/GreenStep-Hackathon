@@ -29,16 +29,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}"><img style="height:50px" src="/assets/img/logo.png"></a>
+        <a href="" style="color: white"><b>Rank Runner</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><b>#{{ App\User::find(Auth::id())->getCurrentRank() }} <sup>{{ App\User::find(Auth::id())->getPoint() }}</sup> </b></a>
-                </li>
+
                 @if(Auth::id())
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: yellow"><b>#{{ App\User::find(Auth::id())->getCurrentRank() }} <sup>{{ App\User::find(Auth::id())->getPoint() }}</sup> </b></a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('account.challenges') }}"><b><span class="red-rank">@if (Auth::check()) {{ Auth::user()->name
                          }} @endif</span></b></a>
