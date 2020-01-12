@@ -3,7 +3,7 @@ import {View,Text} from 'react-native'
 import Carousel from 'react-native-snap-carousel'
 import DescribedCard from '../../components/DescribedCard';
 import ProgramList from '../../components/ProgramList'
-import { Dimensions } from "react-native";
+import { Dimensions} from "react-native";
 import config from '../../constant';
 import {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
