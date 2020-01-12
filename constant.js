@@ -1,4 +1,5 @@
 const config = {
+    user: null,
     mainColor: '#ff6347',
     sampleItems: [
         {

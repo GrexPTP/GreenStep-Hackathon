@@ -1,4 +1,5 @@
 import React, { memo, useState } from 'react';
+import {setGlobal} from 'reactn'
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import Background from '../../components/Background';
 import Logo from '../../components/Logo';
@@ -8,6 +9,7 @@ import TextInput from '../../components/TextInput';
 import BackButton from '../../components/BackButton';
 import { theme } from '../../core/theme';
 import { emailValidator, passwordValidator } from '../../core/utils';
+import config from '../../constant';
 
 
 
@@ -24,12 +26,15 @@ const LoginPage = ({ navigation }) => {
       setPassword({ ...password, error: passwordError });
       return;
     }
-    fetch('http://13.76.100.205/api/login', {
-        method: 'post',
-        body: JSON.stringify({email, password})
+    fetch(`http://13.76.100.205/api/login?email=${email.value}&password=${password.value}`, {
     }).then(response => response.json())
     .then(results => {
-        if (results)  navigation.navigate('HomePage');
+
+        if (results) {
+            navigation.navigate('HomePage');
+            setGlobal({user: results})
+
+        } 
         return
     })
    
