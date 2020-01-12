@@ -11,7 +11,7 @@
  Target Server Version : 100408
  File Encoding         : 65001
 
- Date: 12/01/2020 09:55:35
+ Date: 12/01/2020 12:07:32
 */
 
 SET NAMES utf8mb4;
@@ -35,8 +35,8 @@ CREATE TABLE `categories`  (
 -- ----------------------------
 -- Records of categories
 -- ----------------------------
-INSERT INTO `categories` VALUES (1, NULL, 1, 'Category 1', 'category-1', '2020-01-11 02:55:21', '2020-01-11 02:55:21');
-INSERT INTO `categories` VALUES (2, NULL, 1, 'Category 2', 'category-2', '2020-01-11 02:55:21', '2020-01-11 02:55:21');
+INSERT INTO `categories` VALUES (1, NULL, 1, 'Category 1', 'category-1', '2020-01-11 09:55:21', '2020-01-11 09:55:21');
+INSERT INTO `categories` VALUES (2, NULL, 1, 'Category 2', 'category-2', '2020-01-11 09:55:21', '2020-01-11 09:55:21');
 
 -- ----------------------------
 -- Table structure for companies
@@ -53,9 +53,9 @@ CREATE TABLE `companies`  (
 -- ----------------------------
 -- Records of companies
 -- ----------------------------
-INSERT INTO `companies` VALUES (1, 'FPT Organization', '2020-01-11 08:59:39', '2020-01-11 08:59:39');
-INSERT INTO `companies` VALUES (2, 'Act Brain Vietnam', '2020-01-11 08:59:51', '2020-01-11 08:59:51');
-INSERT INTO `companies` VALUES (3, 'Tường Minh Organization', '2020-01-11 09:00:08', '2020-01-11 09:00:08');
+INSERT INTO `companies` VALUES (1, 'FPT Organization', '2020-01-11 15:59:39', '2020-01-11 15:59:39');
+INSERT INTO `companies` VALUES (2, 'Act Brain Vietnam', '2020-01-11 15:59:51', '2020-01-11 15:59:51');
+INSERT INTO `companies` VALUES (3, 'Tường Minh Organization', '2020-01-11 16:00:08', '2020-01-11 16:00:08');
 
 -- ----------------------------
 -- Table structure for data_rows
@@ -199,15 +199,15 @@ CREATE TABLE `data_types`  (
 -- ----------------------------
 -- Records of data_types
 -- ----------------------------
-INSERT INTO `data_types` VALUES (1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 02:55:15', '2020-01-11 09:36:57');
-INSERT INTO `data_types` VALUES (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2020-01-11 02:55:15', '2020-01-11 02:55:15');
-INSERT INTO `data_types` VALUES (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, '', '', 1, 0, NULL, '2020-01-11 02:55:15', '2020-01-11 02:55:15');
-INSERT INTO `data_types` VALUES (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2020-01-11 02:55:21', '2020-01-11 02:55:21');
-INSERT INTO `data_types` VALUES (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2020-01-11 02:55:21', '2020-01-11 02:55:21');
-INSERT INTO `data_types` VALUES (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `data_types` VALUES (7, 'events', 'events', 'Event', 'Events', NULL, 'App\\Event', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 08:54:34', '2020-01-12 01:47:27');
-INSERT INTO `data_types` VALUES (8, 'companies', 'companies', 'Company', 'Companies', NULL, 'App\\Company', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
-INSERT INTO `data_types` VALUES (9, 'steps', 'steps', 'Step', 'Steps', NULL, 'App\\Step', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 09:45:16', '2020-01-11 09:48:15');
+INSERT INTO `data_types` VALUES (1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 09:55:15', '2020-01-11 16:36:57');
+INSERT INTO `data_types` VALUES (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2020-01-11 09:55:15', '2020-01-11 09:55:15');
+INSERT INTO `data_types` VALUES (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, '', '', 1, 0, NULL, '2020-01-11 09:55:15', '2020-01-11 09:55:15');
+INSERT INTO `data_types` VALUES (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2020-01-11 09:55:21', '2020-01-11 09:55:21');
+INSERT INTO `data_types` VALUES (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2020-01-11 09:55:21', '2020-01-11 09:55:21');
+INSERT INTO `data_types` VALUES (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `data_types` VALUES (7, 'events', 'events', 'Event', 'Events', NULL, 'App\\Event', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 15:54:34', '2020-01-12 08:47:27');
+INSERT INTO `data_types` VALUES (8, 'companies', 'companies', 'Company', 'Companies', NULL, 'App\\Company', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2020-01-11 15:57:53', '2020-01-11 15:57:53');
+INSERT INTO `data_types` VALUES (9, 'steps', 'steps', 'Step', 'Steps', NULL, 'App\\Step', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-11 16:45:16', '2020-01-11 16:48:15');
 
 -- ----------------------------
 -- Table structure for events
@@ -217,7 +217,7 @@ CREATE TABLE `events`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `images` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `location` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `location` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `start_date` date NOT NULL,
@@ -226,7 +226,7 @@ CREATE TABLE `events`  (
   `end_time` time(0) NOT NULL,
   `distance` double NULL DEFAULT NULL,
   `step_amount` bigint(20) NULL DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '\"pending\"',
+  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'pending',
   `user_id` int(11) NOT NULL,
   `company_id` int(11) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
@@ -234,14 +234,16 @@ CREATE TABLE `events`  (
   `start_point` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `end_point` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of events
 -- ----------------------------
-INSERT INTO `events` VALUES (1, '[\"events\\\\January2020\\\\5JsfpkIcgZfwJoU6uxpK.jpg\",\"events\\\\January2020\\\\hGEuT26ETqxx5VnedKWq.jpg\",\"events\\\\January2020\\\\7g6rjQPEo7gKwo6T5ej4.jpg\"]', 'Event 1', 'Can Tho', 'this is the description number 1', 'step', '2020-01-20', '00:00:00', '2020-01-20', '13:00:00', NULL, 10000, 'pending', 1, NULL, '2020-01-11 09:15:00', '2020-01-11 08:52:12', NULL, NULL);
-INSERT INTO `events` VALUES (2, '[\"events\\\\January2020\\\\ajTD48DS9ZkzoaF6D5oH.jpg\",\"events\\\\January2020\\\\LodmtVC0dJcSh1QX9TsS.jpg\",\"events\\\\January2020\\\\12BQAs9i5E0SZn02tp3W.jpg\"]', 'Run for the environment', 'Hoan Kiem, Ha Noi', 'Run for the environment', 'step', '2020-10-29', '07:00:00', '2019-11-03', '19:00:00', NULL, 10000, 'started', 1, NULL, '2020-01-11 15:02:00', '2020-01-11 08:52:27', NULL, NULL);
-INSERT INTO `events` VALUES (3, '[\"events\\\\January2020\\\\C4U2gkKieLAYlucOgZyK.jpg\",\"events\\\\January2020\\\\XkMo8ZNTTvX6CYC0a1mc.jpg\",\"events\\\\January2020\\\\vjbRFrmiC5U7vLKxvx25.jpg\"]', 'Green Step', 'Ba Dinh, Ha Noi', 'Make the world green', 'time', '2020-10-10', '07:00:00', '2019-11-15', '17:00:00', 20, NULL, 'started', 2, 1, '2020-01-11 15:09:00', '2020-01-11 08:51:12', NULL, NULL);
+INSERT INTO `events` VALUES (1, '[\"events\\\\January2020\\\\5JsfpkIcgZfwJoU6uxpK.jpg\",\"events\\\\January2020\\\\hGEuT26ETqxx5VnedKWq.jpg\",\"events\\\\January2020\\\\7g6rjQPEo7gKwo6T5ej4.jpg\"]', 'Event 1', 'Can Tho', 'this is the description number 1', 'step', '2020-01-20', '00:00:00', '2020-01-20', '13:00:00', NULL, 10000, 'pending', 1, NULL, '2020-01-11 16:15:00', '2020-01-11 15:52:12', NULL, NULL);
+INSERT INTO `events` VALUES (2, '[\"events\\\\January2020\\\\ajTD48DS9ZkzoaF6D5oH.jpg\",\"events\\\\January2020\\\\LodmtVC0dJcSh1QX9TsS.jpg\",\"events\\\\January2020\\\\12BQAs9i5E0SZn02tp3W.jpg\"]', 'Run for the environment', 'Hoan Kiem, Ha Noi', 'Run for the environment', 'step', '2020-10-29', '07:00:00', '2019-11-03', '19:00:00', NULL, 10000, 'ended', 1, NULL, '2020-01-11 22:02:00', '2020-01-12 09:57:12', NULL, NULL);
+INSERT INTO `events` VALUES (3, '[\"events\\\\January2020\\\\C4U2gkKieLAYlucOgZyK.jpg\",\"events\\\\January2020\\\\XkMo8ZNTTvX6CYC0a1mc.jpg\",\"events\\\\January2020\\\\vjbRFrmiC5U7vLKxvx25.jpg\"]', 'Green Step', 'Ba Dinh, Ha Noi', 'Make the world green', 'time', '2020-10-10', '07:00:00', '2019-11-15', '17:00:00', 20, NULL, 'ended', 2, 1, '2020-01-11 22:09:00', '2020-01-12 09:57:12', NULL, NULL);
+INSERT INTO `events` VALUES (4, NULL, 'Testing', NULL, '<p>ZABSDA</p>', 'martathon', '2020-01-03', '13:00:00', '2020-01-04', '01:01:00', 200, NULL, 'ended', 1, NULL, '2020-01-12 11:30:21', '2020-01-12 11:39:24', NULL, NULL);
+INSERT INTO `events` VALUES (5, NULL, 'Testing 2', NULL, '<p>Description</p>', 'step', '2020-01-14', '01:00:00', '2020-01-14', '01:57:00', NULL, 120000, 'pending', 4, NULL, '2020-01-12 11:52:01', '2020-01-12 11:52:01', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for failed_jobs
@@ -282,19 +284,19 @@ CREATE TABLE `menu_items`  (
 -- ----------------------------
 -- Records of menu_items
 -- ----------------------------
-INSERT INTO `menu_items` VALUES (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2020-01-11 02:55:16', '2020-01-11 02:55:16', 'voyager.dashboard', NULL);
-INSERT INTO `menu_items` VALUES (3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 2, '2020-01-11 02:55:16', '2020-01-11 09:52:31', 'voyager.users.index', NULL);
-INSERT INTO `menu_items` VALUES (4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, 5, 2, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.roles.index', NULL);
-INSERT INTO `menu_items` VALUES (5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 6, '2020-01-11 02:55:17', '2020-01-11 09:52:36', NULL, NULL);
-INSERT INTO `menu_items` VALUES (6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 3, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.menus.index', NULL);
-INSERT INTO `menu_items` VALUES (7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 4, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.database.index', NULL);
-INSERT INTO `menu_items` VALUES (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 5, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.compass.index', NULL);
-INSERT INTO `menu_items` VALUES (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 6, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.bread.index', NULL);
-INSERT INTO `menu_items` VALUES (10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, 5, 1, '2020-01-11 02:55:17', '2020-01-11 09:52:36', 'voyager.settings.index', NULL);
-INSERT INTO `menu_items` VALUES (14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 7, '2020-01-11 02:55:23', '2020-01-11 09:52:36', 'voyager.hooks', NULL);
-INSERT INTO `menu_items` VALUES (15, 1, 'Events', '', '_self', 'voyager-play', '#000000', NULL, 3, '2020-01-11 08:54:34', '2020-01-11 09:53:37', 'voyager.events.index', 'null');
-INSERT INTO `menu_items` VALUES (16, 1, 'Companies', '', '_self', 'voyager-company', '#000000', NULL, 4, '2020-01-11 08:57:53', '2020-01-11 09:53:42', 'voyager.companies.index', 'null');
-INSERT INTO `menu_items` VALUES (17, 1, 'Steps', '', '_self', 'voyager-paw', '#000000', NULL, 5, '2020-01-11 09:45:16', '2020-01-11 09:53:46', 'voyager.steps.index', 'null');
+INSERT INTO `menu_items` VALUES (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2020-01-11 09:55:16', '2020-01-11 09:55:16', 'voyager.dashboard', NULL);
+INSERT INTO `menu_items` VALUES (3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 2, '2020-01-11 09:55:16', '2020-01-11 16:52:31', 'voyager.users.index', NULL);
+INSERT INTO `menu_items` VALUES (4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, 5, 2, '2020-01-11 09:55:17', '2020-01-11 16:52:36', 'voyager.roles.index', NULL);
+INSERT INTO `menu_items` VALUES (5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 6, '2020-01-11 09:55:17', '2020-01-11 16:52:36', NULL, NULL);
+INSERT INTO `menu_items` VALUES (6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 3, '2020-01-11 09:55:17', '2020-01-11 16:52:36', 'voyager.menus.index', NULL);
+INSERT INTO `menu_items` VALUES (7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 4, '2020-01-11 09:55:17', '2020-01-11 16:52:36', 'voyager.database.index', NULL);
+INSERT INTO `menu_items` VALUES (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 5, '2020-01-11 09:55:17', '2020-01-11 16:52:36', 'voyager.compass.index', NULL);
+INSERT INTO `menu_items` VALUES (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 6, '2020-01-11 09:55:17', '2020-01-11 16:52:36', 'voyager.bread.index', NULL);
+INSERT INTO `menu_items` VALUES (10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, 5, 1, '2020-01-11 09:55:17', '2020-01-11 16:52:36', 'voyager.settings.index', NULL);
+INSERT INTO `menu_items` VALUES (14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 7, '2020-01-11 09:55:23', '2020-01-11 16:52:36', 'voyager.hooks', NULL);
+INSERT INTO `menu_items` VALUES (15, 1, 'Events', '', '_self', 'voyager-play', '#000000', NULL, 3, '2020-01-11 15:54:34', '2020-01-11 16:53:37', 'voyager.events.index', 'null');
+INSERT INTO `menu_items` VALUES (16, 1, 'Companies', '', '_self', 'voyager-company', '#000000', NULL, 4, '2020-01-11 15:57:53', '2020-01-11 16:53:42', 'voyager.companies.index', 'null');
+INSERT INTO `menu_items` VALUES (17, 1, 'Steps', '', '_self', 'voyager-paw', '#000000', NULL, 5, '2020-01-11 16:45:16', '2020-01-11 16:53:46', 'voyager.steps.index', 'null');
 
 -- ----------------------------
 -- Table structure for menus
@@ -312,7 +314,7 @@ CREATE TABLE `menus`  (
 -- ----------------------------
 -- Records of menus
 -- ----------------------------
-INSERT INTO `menus` VALUES (1, 'admin', '2020-01-11 02:55:16', '2020-01-11 02:55:16');
+INSERT INTO `menus` VALUES (1, 'admin', '2020-01-11 09:55:16', '2020-01-11 09:55:16');
 
 -- ----------------------------
 -- Table structure for migrations
@@ -380,7 +382,7 @@ CREATE TABLE `pages`  (
 -- ----------------------------
 -- Records of pages
 -- ----------------------------
-INSERT INTO `pages` VALUES (1, 0, 'Hello World', 'Hang the jib grog grog blossom grapple dance the hempen jig gangway pressgang bilge rat to go on account lugger. Nelsons folly gabion line draught scallywag fire ship gaff fluke fathom case shot. Sea Legs bilge rat sloop matey gabion long clothes run a shot across the bow Gold Road cog league.', '<p>Hello World. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>', 'pages/page1.jpg', 'hello-world', 'Yar Meta Description', 'Keyword1, Keyword2', 'ACTIVE', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
+INSERT INTO `pages` VALUES (1, 0, 'Hello World', 'Hang the jib grog grog blossom grapple dance the hempen jig gangway pressgang bilge rat to go on account lugger. Nelsons folly gabion line draught scallywag fire ship gaff fluke fathom case shot. Sea Legs bilge rat sloop matey gabion long clothes run a shot across the bow Gold Road cog league.', '<p>Hello World. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>', 'pages/page1.jpg', 'hello-world', 'Yar Meta Description', 'Keyword1, Keyword2', 'ACTIVE', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -484,62 +486,62 @@ CREATE TABLE `permissions`  (
 -- ----------------------------
 -- Records of permissions
 -- ----------------------------
-INSERT INTO `permissions` VALUES (1, 'browse_admin', NULL, '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (2, 'browse_bread', NULL, '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (3, 'browse_database', NULL, '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (4, 'browse_media', NULL, '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (5, 'browse_compass', NULL, '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (6, 'browse_menus', 'menus', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (7, 'read_menus', 'menus', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (8, 'edit_menus', 'menus', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (9, 'add_menus', 'menus', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (10, 'delete_menus', 'menus', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (11, 'browse_roles', 'roles', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (12, 'read_roles', 'roles', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (13, 'edit_roles', 'roles', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (14, 'add_roles', 'roles', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (15, 'delete_roles', 'roles', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (16, 'browse_users', 'users', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (17, 'read_users', 'users', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (18, 'edit_users', 'users', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (19, 'add_users', 'users', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (20, 'delete_users', 'users', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (21, 'browse_settings', 'settings', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (22, 'read_settings', 'settings', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (23, 'edit_settings', 'settings', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (24, 'add_settings', 'settings', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (25, 'delete_settings', 'settings', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `permissions` VALUES (26, 'browse_categories', 'categories', '2020-01-11 02:55:21', '2020-01-11 02:55:21');
-INSERT INTO `permissions` VALUES (27, 'read_categories', 'categories', '2020-01-11 02:55:21', '2020-01-11 02:55:21');
-INSERT INTO `permissions` VALUES (28, 'edit_categories', 'categories', '2020-01-11 02:55:21', '2020-01-11 02:55:21');
-INSERT INTO `permissions` VALUES (29, 'add_categories', 'categories', '2020-01-11 02:55:21', '2020-01-11 02:55:21');
-INSERT INTO `permissions` VALUES (30, 'delete_categories', 'categories', '2020-01-11 02:55:21', '2020-01-11 02:55:21');
-INSERT INTO `permissions` VALUES (31, 'browse_posts', 'posts', '2020-01-11 02:55:21', '2020-01-11 02:55:21');
-INSERT INTO `permissions` VALUES (32, 'read_posts', 'posts', '2020-01-11 02:55:21', '2020-01-11 02:55:21');
-INSERT INTO `permissions` VALUES (33, 'edit_posts', 'posts', '2020-01-11 02:55:21', '2020-01-11 02:55:21');
-INSERT INTO `permissions` VALUES (34, 'add_posts', 'posts', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `permissions` VALUES (35, 'delete_posts', 'posts', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `permissions` VALUES (36, 'browse_pages', 'pages', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `permissions` VALUES (37, 'read_pages', 'pages', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `permissions` VALUES (38, 'edit_pages', 'pages', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `permissions` VALUES (39, 'add_pages', 'pages', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `permissions` VALUES (40, 'delete_pages', 'pages', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `permissions` VALUES (41, 'browse_hooks', NULL, '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `permissions` VALUES (42, 'browse_events', 'events', '2020-01-11 08:54:34', '2020-01-11 08:54:34');
-INSERT INTO `permissions` VALUES (43, 'read_events', 'events', '2020-01-11 08:54:34', '2020-01-11 08:54:34');
-INSERT INTO `permissions` VALUES (44, 'edit_events', 'events', '2020-01-11 08:54:34', '2020-01-11 08:54:34');
-INSERT INTO `permissions` VALUES (45, 'add_events', 'events', '2020-01-11 08:54:34', '2020-01-11 08:54:34');
-INSERT INTO `permissions` VALUES (46, 'delete_events', 'events', '2020-01-11 08:54:34', '2020-01-11 08:54:34');
-INSERT INTO `permissions` VALUES (47, 'browse_companies', 'companies', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
-INSERT INTO `permissions` VALUES (48, 'read_companies', 'companies', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
-INSERT INTO `permissions` VALUES (49, 'edit_companies', 'companies', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
-INSERT INTO `permissions` VALUES (50, 'add_companies', 'companies', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
-INSERT INTO `permissions` VALUES (51, 'delete_companies', 'companies', '2020-01-11 08:57:53', '2020-01-11 08:57:53');
-INSERT INTO `permissions` VALUES (52, 'browse_steps', 'steps', '2020-01-11 09:45:16', '2020-01-11 09:45:16');
-INSERT INTO `permissions` VALUES (53, 'read_steps', 'steps', '2020-01-11 09:45:16', '2020-01-11 09:45:16');
-INSERT INTO `permissions` VALUES (54, 'edit_steps', 'steps', '2020-01-11 09:45:16', '2020-01-11 09:45:16');
-INSERT INTO `permissions` VALUES (55, 'add_steps', 'steps', '2020-01-11 09:45:16', '2020-01-11 09:45:16');
-INSERT INTO `permissions` VALUES (56, 'delete_steps', 'steps', '2020-01-11 09:45:16', '2020-01-11 09:45:16');
+INSERT INTO `permissions` VALUES (1, 'browse_admin', NULL, '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (2, 'browse_bread', NULL, '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (3, 'browse_database', NULL, '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (4, 'browse_media', NULL, '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (5, 'browse_compass', NULL, '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (6, 'browse_menus', 'menus', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (7, 'read_menus', 'menus', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (8, 'edit_menus', 'menus', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (9, 'add_menus', 'menus', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (10, 'delete_menus', 'menus', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (11, 'browse_roles', 'roles', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (12, 'read_roles', 'roles', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (13, 'edit_roles', 'roles', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (14, 'add_roles', 'roles', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (15, 'delete_roles', 'roles', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (16, 'browse_users', 'users', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (17, 'read_users', 'users', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (18, 'edit_users', 'users', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (19, 'add_users', 'users', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (20, 'delete_users', 'users', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (21, 'browse_settings', 'settings', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (22, 'read_settings', 'settings', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (23, 'edit_settings', 'settings', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (24, 'add_settings', 'settings', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (25, 'delete_settings', 'settings', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `permissions` VALUES (26, 'browse_categories', 'categories', '2020-01-11 09:55:21', '2020-01-11 09:55:21');
+INSERT INTO `permissions` VALUES (27, 'read_categories', 'categories', '2020-01-11 09:55:21', '2020-01-11 09:55:21');
+INSERT INTO `permissions` VALUES (28, 'edit_categories', 'categories', '2020-01-11 09:55:21', '2020-01-11 09:55:21');
+INSERT INTO `permissions` VALUES (29, 'add_categories', 'categories', '2020-01-11 09:55:21', '2020-01-11 09:55:21');
+INSERT INTO `permissions` VALUES (30, 'delete_categories', 'categories', '2020-01-11 09:55:21', '2020-01-11 09:55:21');
+INSERT INTO `permissions` VALUES (31, 'browse_posts', 'posts', '2020-01-11 09:55:21', '2020-01-11 09:55:21');
+INSERT INTO `permissions` VALUES (32, 'read_posts', 'posts', '2020-01-11 09:55:21', '2020-01-11 09:55:21');
+INSERT INTO `permissions` VALUES (33, 'edit_posts', 'posts', '2020-01-11 09:55:21', '2020-01-11 09:55:21');
+INSERT INTO `permissions` VALUES (34, 'add_posts', 'posts', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `permissions` VALUES (35, 'delete_posts', 'posts', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `permissions` VALUES (36, 'browse_pages', 'pages', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `permissions` VALUES (37, 'read_pages', 'pages', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `permissions` VALUES (38, 'edit_pages', 'pages', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `permissions` VALUES (39, 'add_pages', 'pages', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `permissions` VALUES (40, 'delete_pages', 'pages', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `permissions` VALUES (41, 'browse_hooks', NULL, '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `permissions` VALUES (42, 'browse_events', 'events', '2020-01-11 15:54:34', '2020-01-11 15:54:34');
+INSERT INTO `permissions` VALUES (43, 'read_events', 'events', '2020-01-11 15:54:34', '2020-01-11 15:54:34');
+INSERT INTO `permissions` VALUES (44, 'edit_events', 'events', '2020-01-11 15:54:34', '2020-01-11 15:54:34');
+INSERT INTO `permissions` VALUES (45, 'add_events', 'events', '2020-01-11 15:54:34', '2020-01-11 15:54:34');
+INSERT INTO `permissions` VALUES (46, 'delete_events', 'events', '2020-01-11 15:54:34', '2020-01-11 15:54:34');
+INSERT INTO `permissions` VALUES (47, 'browse_companies', 'companies', '2020-01-11 15:57:53', '2020-01-11 15:57:53');
+INSERT INTO `permissions` VALUES (48, 'read_companies', 'companies', '2020-01-11 15:57:53', '2020-01-11 15:57:53');
+INSERT INTO `permissions` VALUES (49, 'edit_companies', 'companies', '2020-01-11 15:57:53', '2020-01-11 15:57:53');
+INSERT INTO `permissions` VALUES (50, 'add_companies', 'companies', '2020-01-11 15:57:53', '2020-01-11 15:57:53');
+INSERT INTO `permissions` VALUES (51, 'delete_companies', 'companies', '2020-01-11 15:57:53', '2020-01-11 15:57:53');
+INSERT INTO `permissions` VALUES (52, 'browse_steps', 'steps', '2020-01-11 16:45:16', '2020-01-11 16:45:16');
+INSERT INTO `permissions` VALUES (53, 'read_steps', 'steps', '2020-01-11 16:45:16', '2020-01-11 16:45:16');
+INSERT INTO `permissions` VALUES (54, 'edit_steps', 'steps', '2020-01-11 16:45:16', '2020-01-11 16:45:16');
+INSERT INTO `permissions` VALUES (55, 'add_steps', 'steps', '2020-01-11 16:45:16', '2020-01-11 16:45:16');
+INSERT INTO `permissions` VALUES (56, 'delete_steps', 'steps', '2020-01-11 16:45:16', '2020-01-11 16:45:16');
 
 -- ----------------------------
 -- Table structure for points
@@ -589,10 +591,10 @@ CREATE TABLE `posts`  (
 -- ----------------------------
 -- Records of posts
 -- ----------------------------
-INSERT INTO `posts` VALUES (1, 0, NULL, 'Lorem Ipsum Post', NULL, 'This is the excerpt for the Lorem Ipsum Post', '<p>This is the body of the lorem ipsum post</p>', 'posts/post1.jpg', 'lorem-ipsum-post', 'This is the meta description', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `posts` VALUES (2, 0, NULL, 'My Sample Post', NULL, 'This is the excerpt for the sample Post', '<p>This is the body for the sample post, which includes the body.</p>\n                <h2>We can use all kinds of format!</h2>\n                <p>And include a bunch of other stuff.</p>', 'posts/post2.jpg', 'my-sample-post', 'Meta Description for sample post', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `posts` VALUES (3, 0, NULL, 'Latest Post', NULL, 'This is the excerpt for the latest post', '<p>This is the body for the latest post</p>', 'posts/post3.jpg', 'latest-post', 'This is the meta description', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `posts` VALUES (4, 0, NULL, 'Yarr Post', NULL, 'Reef sails nipperkin bring a spring upon her cable coffer jury mast spike marooned Pieces of Eight poop deck pillage. Clipper driver coxswain galleon hempen halter come about pressgang gangplank boatswain swing the lead. Nipperkin yard skysail swab lanyard Blimey bilge water ho quarter Buccaneer.', '<p>Swab deadlights Buccaneer fire ship square-rigged dance the hempen jig weigh anchor cackle fruit grog furl. Crack Jennys tea cup chase guns pressgang hearties spirits hogshead Gold Road six pounders fathom measured fer yer chains. Main sheet provost come about trysail barkadeer crimp scuttle mizzenmast brig plunder.</p>\n<p>Mizzen league keelhaul galleon tender cog chase Barbary Coast doubloon crack Jennys tea cup. Blow the man down lugsail fire ship pinnace cackle fruit line warp Admiral of the Black strike colors doubloon. Tackle Jack Ketch come about crimp rum draft scuppers run a shot across the bow haul wind maroon.</p>\n<p>Interloper heave down list driver pressgang holystone scuppers tackle scallywag bilged on her anchor. Jack Tar interloper draught grapple mizzenmast hulk knave cable transom hogshead. Gaff pillage to go on account grog aft chase guns piracy yardarm knave clap of thunder.</p>', 'posts/post4.jpg', 'yarr-post', 'this be a meta descript', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2020-01-11 02:55:22', '2020-01-11 02:55:22');
+INSERT INTO `posts` VALUES (1, 0, NULL, 'Lorem Ipsum Post', NULL, 'This is the excerpt for the Lorem Ipsum Post', '<p>This is the body of the lorem ipsum post</p>', 'posts/post1.jpg', 'lorem-ipsum-post', 'This is the meta description', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `posts` VALUES (2, 0, NULL, 'My Sample Post', NULL, 'This is the excerpt for the sample Post', '<p>This is the body for the sample post, which includes the body.</p>\n                <h2>We can use all kinds of format!</h2>\n                <p>And include a bunch of other stuff.</p>', 'posts/post2.jpg', 'my-sample-post', 'Meta Description for sample post', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `posts` VALUES (3, 0, NULL, 'Latest Post', NULL, 'This is the excerpt for the latest post', '<p>This is the body for the latest post</p>', 'posts/post3.jpg', 'latest-post', 'This is the meta description', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `posts` VALUES (4, 0, NULL, 'Yarr Post', NULL, 'Reef sails nipperkin bring a spring upon her cable coffer jury mast spike marooned Pieces of Eight poop deck pillage. Clipper driver coxswain galleon hempen halter come about pressgang gangplank boatswain swing the lead. Nipperkin yard skysail swab lanyard Blimey bilge water ho quarter Buccaneer.', '<p>Swab deadlights Buccaneer fire ship square-rigged dance the hempen jig weigh anchor cackle fruit grog furl. Crack Jennys tea cup chase guns pressgang hearties spirits hogshead Gold Road six pounders fathom measured fer yer chains. Main sheet provost come about trysail barkadeer crimp scuttle mizzenmast brig plunder.</p>\n<p>Mizzen league keelhaul galleon tender cog chase Barbary Coast doubloon crack Jennys tea cup. Blow the man down lugsail fire ship pinnace cackle fruit line warp Admiral of the Black strike colors doubloon. Tackle Jack Ketch come about crimp rum draft scuppers run a shot across the bow haul wind maroon.</p>\n<p>Interloper heave down list driver pressgang holystone scuppers tackle scallywag bilged on her anchor. Jack Tar interloper draught grapple mizzenmast hulk knave cable transom hogshead. Gaff pillage to go on account grog aft chase guns piracy yardarm knave clap of thunder.</p>', 'posts/post4.jpg', 'yarr-post', 'this be a meta descript', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2020-01-11 09:55:22', '2020-01-11 09:55:22');
 
 -- ----------------------------
 -- Table structure for roles
@@ -611,8 +613,8 @@ CREATE TABLE `roles`  (
 -- ----------------------------
 -- Records of roles
 -- ----------------------------
-INSERT INTO `roles` VALUES (1, 'admin', 'Administrator', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
-INSERT INTO `roles` VALUES (2, 'user', 'Normal User', '2020-01-11 02:55:17', '2020-01-11 02:55:17');
+INSERT INTO `roles` VALUES (1, 'admin', 'Administrator', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
+INSERT INTO `roles` VALUES (2, 'user', 'Normal User', '2020-01-11 09:55:17', '2020-01-11 09:55:17');
 
 -- ----------------------------
 -- Table structure for settings
@@ -658,12 +660,19 @@ CREATE TABLE `steps`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `finish_time` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of steps
 -- ----------------------------
-INSERT INTO `steps` VALUES (4, 1, 1, 100, '2020-01-12 02:52:35', '2020-01-12 02:52:35', '2020-01-12 02:52:35');
+INSERT INTO `steps` VALUES (4, 1, 1, 100, '2020-01-12 09:52:35', '2020-01-12 09:52:35', '2020-01-12 09:52:35');
+INSERT INTO `steps` VALUES (5, 2, 1, 100, '2020-01-12 10:57:01', '2020-01-12 10:57:01', '2020-01-12 10:57:01');
+INSERT INTO `steps` VALUES (6, 2, 2, 100, '2020-01-12 10:57:07', '2020-01-12 10:57:07', '2020-01-12 10:57:07');
+INSERT INTO `steps` VALUES (7, 2, 3, 100, '2020-01-12 10:57:11', '2020-01-12 10:57:11', '2020-01-12 10:57:11');
+INSERT INTO `steps` VALUES (8, 2, 4, 100, '2020-01-12 10:57:15', '2020-01-12 10:57:15', '2020-01-12 10:57:15');
+INSERT INTO `steps` VALUES (9, 3, 1, 100, '2020-01-12 10:59:35', '2020-01-12 10:59:35', '2020-01-12 10:59:35');
+INSERT INTO `steps` VALUES (10, 3, 2, 100, '2020-01-12 10:59:39', '2020-01-12 10:59:39', '2020-01-12 10:59:39');
+INSERT INTO `steps` VALUES (11, 3, 3, 100, '2020-01-12 10:59:43', '2020-01-12 10:59:43', '2020-01-12 10:59:43');
 
 -- ----------------------------
 -- Table structure for translations
@@ -685,36 +694,36 @@ CREATE TABLE `translations`  (
 -- ----------------------------
 -- Records of translations
 -- ----------------------------
-INSERT INTO `translations` VALUES (1, 'data_types', 'display_name_singular', 5, 'pt', 'Post', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `translations` VALUES (2, 'data_types', 'display_name_singular', 6, 'pt', 'Página', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `translations` VALUES (3, 'data_types', 'display_name_singular', 1, 'pt', 'Utilizador', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `translations` VALUES (4, 'data_types', 'display_name_singular', 4, 'pt', 'Categoria', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `translations` VALUES (5, 'data_types', 'display_name_singular', 2, 'pt', 'Menu', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `translations` VALUES (6, 'data_types', 'display_name_singular', 3, 'pt', 'Função', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `translations` VALUES (7, 'data_types', 'display_name_plural', 5, 'pt', 'Posts', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `translations` VALUES (8, 'data_types', 'display_name_plural', 6, 'pt', 'Páginas', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `translations` VALUES (9, 'data_types', 'display_name_plural', 1, 'pt', 'Utilizadores', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `translations` VALUES (10, 'data_types', 'display_name_plural', 4, 'pt', 'Categorias', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `translations` VALUES (11, 'data_types', 'display_name_plural', 2, 'pt', 'Menus', '2020-01-11 02:55:22', '2020-01-11 02:55:22');
-INSERT INTO `translations` VALUES (12, 'data_types', 'display_name_plural', 3, 'pt', 'Funções', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (13, 'categories', 'slug', 1, 'pt', 'categoria-1', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (14, 'categories', 'name', 1, 'pt', 'Categoria 1', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (15, 'categories', 'slug', 2, 'pt', 'categoria-2', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (16, 'categories', 'name', 2, 'pt', 'Categoria 2', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (17, 'pages', 'title', 1, 'pt', 'Olá Mundo', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (18, 'pages', 'slug', 1, 'pt', 'ola-mundo', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (19, 'pages', 'body', 1, 'pt', '<p>Olá Mundo. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\r\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (20, 'menu_items', 'title', 1, 'pt', 'Painel de Controle', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (21, 'menu_items', 'title', 2, 'pt', 'Media', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (22, 'menu_items', 'title', 12, 'pt', 'Publicações', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (23, 'menu_items', 'title', 3, 'pt', 'Utilizadores', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (24, 'menu_items', 'title', 11, 'pt', 'Categorias', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (25, 'menu_items', 'title', 13, 'pt', 'Páginas', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (26, 'menu_items', 'title', 4, 'pt', 'Funções', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (27, 'menu_items', 'title', 5, 'pt', 'Ferramentas', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (28, 'menu_items', 'title', 6, 'pt', 'Menus', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (29, 'menu_items', 'title', 7, 'pt', 'Base de dados', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
-INSERT INTO `translations` VALUES (30, 'menu_items', 'title', 10, 'pt', 'Configurações', '2020-01-11 02:55:23', '2020-01-11 02:55:23');
+INSERT INTO `translations` VALUES (1, 'data_types', 'display_name_singular', 5, 'pt', 'Post', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `translations` VALUES (2, 'data_types', 'display_name_singular', 6, 'pt', 'Página', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `translations` VALUES (3, 'data_types', 'display_name_singular', 1, 'pt', 'Utilizador', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `translations` VALUES (4, 'data_types', 'display_name_singular', 4, 'pt', 'Categoria', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `translations` VALUES (5, 'data_types', 'display_name_singular', 2, 'pt', 'Menu', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `translations` VALUES (6, 'data_types', 'display_name_singular', 3, 'pt', 'Função', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `translations` VALUES (7, 'data_types', 'display_name_plural', 5, 'pt', 'Posts', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `translations` VALUES (8, 'data_types', 'display_name_plural', 6, 'pt', 'Páginas', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `translations` VALUES (9, 'data_types', 'display_name_plural', 1, 'pt', 'Utilizadores', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `translations` VALUES (10, 'data_types', 'display_name_plural', 4, 'pt', 'Categorias', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `translations` VALUES (11, 'data_types', 'display_name_plural', 2, 'pt', 'Menus', '2020-01-11 09:55:22', '2020-01-11 09:55:22');
+INSERT INTO `translations` VALUES (12, 'data_types', 'display_name_plural', 3, 'pt', 'Funções', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (13, 'categories', 'slug', 1, 'pt', 'categoria-1', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (14, 'categories', 'name', 1, 'pt', 'Categoria 1', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (15, 'categories', 'slug', 2, 'pt', 'categoria-2', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (16, 'categories', 'name', 2, 'pt', 'Categoria 2', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (17, 'pages', 'title', 1, 'pt', 'Olá Mundo', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (18, 'pages', 'slug', 1, 'pt', 'ola-mundo', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (19, 'pages', 'body', 1, 'pt', '<p>Olá Mundo. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\r\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (20, 'menu_items', 'title', 1, 'pt', 'Painel de Controle', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (21, 'menu_items', 'title', 2, 'pt', 'Media', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (22, 'menu_items', 'title', 12, 'pt', 'Publicações', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (23, 'menu_items', 'title', 3, 'pt', 'Utilizadores', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (24, 'menu_items', 'title', 11, 'pt', 'Categorias', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (25, 'menu_items', 'title', 13, 'pt', 'Páginas', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (26, 'menu_items', 'title', 4, 'pt', 'Funções', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (27, 'menu_items', 'title', 5, 'pt', 'Ferramentas', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (28, 'menu_items', 'title', 6, 'pt', 'Menus', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (29, 'menu_items', 'title', 7, 'pt', 'Base de dados', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
+INSERT INTO `translations` VALUES (30, 'menu_items', 'title', 10, 'pt', 'Configurações', '2020-01-11 09:55:23', '2020-01-11 09:55:23');
 
 -- ----------------------------
 -- Table structure for user_event
@@ -736,6 +745,7 @@ INSERT INTO `user_event` VALUES (1, 3);
 INSERT INTO `user_event` VALUES (3, 3);
 INSERT INTO `user_event` VALUES (5, 3);
 INSERT INTO `user_event` VALUES (8, 3);
+INSERT INTO `user_event` VALUES (4, 1);
 
 -- ----------------------------
 -- Table structure for user_roles
@@ -778,13 +788,13 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'admin@admin.com', '$2y$10$OW37fmOUCOmNZwByp8aMOu2sFRwNjSzcPnfYu24ROl36iaXrFnhQO', 'Admin', '0913253199', '2020-01-18', 1, 'users/default.png', NULL, 'wILugpES8MftE8pyZJyaUWCkjCSukEOOvbc5S96Fd9fxZ5RY9DGG0hTsdCSg', '{\"locale\":\"en\"}', '2020-01-11 02:55:21', '2020-01-11 09:36:15');
-INSERT INTO `users` VALUES (2, 'user1@gmail.com', '$2y$10$.eAbVVXkKVdy/aZC3tHX3uBaQV3J2U8ea60kf7okx6mJIAtAfjYIq', 'User 1', '0826401666', '1999-01-02', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 14:53:37', '2020-01-11 14:58:13');
-INSERT INTO `users` VALUES (3, 'user2@vstep.com', '$2y$10$3PmSV9iYXkl5cpRXR36Bbu04PoHe./ZALNSUuczuvIuuzpVspiU5e', 'User 2', '0824613545', '1998-01-01', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 14:54:36', '2020-01-11 14:54:36');
-INSERT INTO `users` VALUES (4, 'user3@vstep.com', '$2y$10$o4f8xLIPtaoDEfqJ10Ts8.Qckiaea2pYF8BIHK49UfuFut0y3tqHu', 'User 3', '825431554', '1999-05-05', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 14:55:31', '2020-01-11 14:55:31');
-INSERT INTO `users` VALUES (5, 'user4@vstep.com', '$2y$10$dTCBL7fkt.eoY6xeUX75t.zUXh4Cl4ySr8mPFOoeojoRsLwoRDpy.', 'User 4', '0624516465', '1996-05-04', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 14:56:24', '2020-01-11 14:56:24');
-INSERT INTO `users` VALUES (6, 'user5@vstep.com', '$2y$10$ct4I8WAK15JwBgG9IkcMa.MsB9Jk8bYTTAS6wyRSEM2GT4Fb/utxa', 'User 5', '082631555', '1998-05-04', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 14:56:58', '2020-01-11 14:56:58');
-INSERT INTO `users` VALUES (7, 'user6@vstep.com', '$2y$10$Rk2pkYcz/VsyHjJSzMWJ5uT4lrpUvyZu6f5rDamXPbpIOlLXwwmA2', 'User 6', '0625461555', '1997-02-02', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 14:57:29', '2020-01-11 14:57:29');
-INSERT INTO `users` VALUES (8, 'user7@vstep.com', '$2y$10$uWGFnt1Min4YqdxLIGR/oukjSBuqoh2VMEKFX.9P8PZ.9NpZvX5rS', 'User 7', '0826412555', '2000-02-02', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 14:58:01', '2020-01-11 14:58:01');
+INSERT INTO `users` VALUES (1, 'admin@admin.com', '$2y$10$OW37fmOUCOmNZwByp8aMOu2sFRwNjSzcPnfYu24ROl36iaXrFnhQO', 'Admin', '0913253199', '2020-01-18', 1, 'users/default.png', NULL, 'MJCoNNaw0MLfJ8yFt4cgobvQsh1bHdfZxfx8tqqwRiir5S1t35Qyo5i4qPQQ', '{\"locale\":\"en\"}', '2020-01-11 09:55:21', '2020-01-11 16:36:15');
+INSERT INTO `users` VALUES (2, 'user1@gmail.com', '$2y$10$.eAbVVXkKVdy/aZC3tHX3uBaQV3J2U8ea60kf7okx6mJIAtAfjYIq', 'User 1', '0826401666', '1999-01-02', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 21:53:37', '2020-01-11 21:58:13');
+INSERT INTO `users` VALUES (3, 'user2@vstep.com', '$2y$10$3PmSV9iYXkl5cpRXR36Bbu04PoHe./ZALNSUuczuvIuuzpVspiU5e', 'User 2', '0824613545', '1998-01-01', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 21:54:36', '2020-01-11 21:54:36');
+INSERT INTO `users` VALUES (4, 'user3@vstep.com', '$2y$10$o4f8xLIPtaoDEfqJ10Ts8.Qckiaea2pYF8BIHK49UfuFut0y3tqHu', 'User 3', '825431554', '1999-05-05', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 21:55:31', '2020-01-11 21:55:31');
+INSERT INTO `users` VALUES (5, 'user4@vstep.com', '$2y$10$dTCBL7fkt.eoY6xeUX75t.zUXh4Cl4ySr8mPFOoeojoRsLwoRDpy.', 'User 4', '0624516465', '1996-05-04', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 21:56:24', '2020-01-11 21:56:24');
+INSERT INTO `users` VALUES (6, 'user5@vstep.com', '$2y$10$ct4I8WAK15JwBgG9IkcMa.MsB9Jk8bYTTAS6wyRSEM2GT4Fb/utxa', 'User 5', '082631555', '1998-05-04', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 21:56:58', '2020-01-11 21:56:58');
+INSERT INTO `users` VALUES (7, 'user6@vstep.com', '$2y$10$Rk2pkYcz/VsyHjJSzMWJ5uT4lrpUvyZu6f5rDamXPbpIOlLXwwmA2', 'User 6', '0625461555', '1997-02-02', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 21:57:29', '2020-01-11 21:57:29');
+INSERT INTO `users` VALUES (8, 'user7@vstep.com', '$2y$10$uWGFnt1Min4YqdxLIGR/oukjSBuqoh2VMEKFX.9P8PZ.9NpZvX5rS', 'User 7', '0826412555', '2000-02-02', 2, 'users/default.png', NULL, NULL, NULL, '2020-01-11 21:58:01', '2020-01-11 21:58:01');
 
 SET FOREIGN_KEY_CHECKS = 1;

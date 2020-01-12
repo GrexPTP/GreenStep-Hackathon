@@ -42,7 +42,7 @@
                 <tr>
                     <th scope="col" style="width: 10%">Rank</th>
                     <th scope="col" style="width: 20%">User</th>
-                    <th scope="col" style="width: 60%">Challenge Target = {{ $event->step_amount }}</th>
+                    <th scope="col" style="width: 60%">Challenge Target = {{ $event->step_amount  }}</th>
 {{--                    <th scope="col" style="width: 10%">Longest</th>--}}
                 </tr>
                 </thead>

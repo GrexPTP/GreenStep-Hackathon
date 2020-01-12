@@ -20,6 +20,12 @@
                                 <input type="text" class="form-control" name="challenge_name" id="challenge_name">
                             </div>
 
+
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" class="form-control" name="location" id="location">
+                            </div>
+
                             <div class="form-group">
                                 <label for="challenge_name">Type</label>
                                 <select name="type" id="type" class="form-control">
@@ -32,6 +38,7 @@
                                 <label for="step_amount">Step</label>
                                 <input type="text" class="form-control" name="step_amount" id="step_amount">
                             </div>
+
 
                             <div class="form-group">
                                 <label for="distance">Distance</label>
@@ -53,6 +60,7 @@
                                     <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
 
                                 </div>
+                                <input type="button" class="btn btn-warning" id="clearMap" value="Clear Map">
                             </div>
 
                             <div class="form-group">
@@ -92,7 +100,7 @@
                 </div>
 
                 <div class="card-footer text-center">
-                    <input type="submit" class="btn btn-primary" value="Create Challenge"></input>
+                    <input type="submit" class="btn btn-primary" value="Create Challenge">
                 </div>
             </div>
         </div>
@@ -112,6 +120,12 @@
 <!-- Bootstrap core JavaScript -->
 <script>
     $(document).ready(function() {
+        $("#clearMap").toggle();
+        $("#clearMap").click(function(){
+            $("input[name=start_point]").val("")
+            $("input[name=end_point]").val("")
+
+        })
         $("input[name=distance]").parent().toggle();
         $("input[name=start_point]").parent().toggle();
         $("input[name=end_point]").parent().toggle();
@@ -125,6 +139,7 @@
             $("input[name=start_point]").parent().toggle();
             $("input[name=end_point]").parent().toggle();
             $("#myMap").toggle();
+            $("#clearMap").toggle();
         })
     });
 </script>
