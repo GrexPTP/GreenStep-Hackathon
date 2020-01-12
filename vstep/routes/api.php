@@ -37,7 +37,7 @@ Route::get('/home',function(Request $request){
 });
 
 Route::get('/event/{id}', function($id){
-    return json_encode(Event::find($id));
+    return json_encode(Event::join('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->find($id));
 });
 
 Route::get('/user/{id}', function($id){
@@ -45,7 +45,7 @@ Route::get('/user/{id}', function($id){
 });
 
 Route::get('/events',function(Request $request){
-    return json_encode(array_values(Event::all()->toArray()));
+    return json_encode(array_values(Event::all()->join('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->toArray()));
 });
 
 Route::get('/my-events/{id}', function($id){
