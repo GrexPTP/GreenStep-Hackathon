@@ -21,8 +21,16 @@ Route::post('/create/challenge', 'VStepController@postCreate')->name('challenge.
 
 Route::get('/account/challenges', 'AccountController@challenges')->name('account.challenges');
 Route::get('/account/common', 'AccountController@common')->name('account.common');
+Route::get('/account/info', 'AccountController@info')->name('account.info');
+Route::post('/account/info', 'AccountController@postInfo')->name('account.postInfo');
+Route::get('/register', 'AccountController@register')->name('account.register');
+Route::get('/register', 'AccountController@postRegister')->name('account.postRegister');
 
 
+
+Route::get('/logout', function(){
+    return redirect('login')->with(Auth::logout());
+});
 
 Route::get('/create', 'VStepController@create');
 Route::group(['prefix' => 'admin'], function () {

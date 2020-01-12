@@ -38,10 +38,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><b>#{{ App\User::find(Auth::id())->getCurrentRank() }} <sup>{{ App\User::find(Auth::id())->getPoint() }}</sup> </b></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><b><span class="red-rank">@if (Auth::check()) {{ Auth::user()->name
-                     }} @endif</span></b></a>
-                </li>
+                @if(Auth::id())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('account.challenges') }}"><b><span class="red-rank">@if (Auth::check()) {{ Auth::user()->name
+                         }} @endif</span></b></a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('account.challenges') }}"><b><span class="red-rank">@if (Auth::check()) {{ Auth::user()->name
+                         }} @endif</span></b></a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="#"><img src="" alt=""></a>
                 </li>

@@ -14,6 +14,10 @@ class VStepController extends Controller
 
 {
     public function index(){
+        if(!\Auth::check()){
+            return redirect('/admin/login');
+        }
+
         $me = User::find(Auth::id());
         $ranking = DB::select("select user_id, total,CASE WHEN @l=total THEN @r ELSE @r:=@r+1 END as rank,@l:=total FROM (select user_id, sum(point) as total from points group by user_id order by total desc) totals, (SELECT @r:=0, @l:=NULL) rank");
         foreach ($ranking as $key => $rank){

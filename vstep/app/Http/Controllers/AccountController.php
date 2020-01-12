@@ -21,4 +21,33 @@ class AccountController extends Controller
         $joined_challenges = User::find($user_id)->events;
         return view('account.common',compact('my_challenges', 'joined_challenges'));
     }
+
+    public function info(){
+        $user = User::find(Auth::id());
+        return view('account.info', compact('user'));
+    }
+
+    public function postInfo(Request $request){
+        if ($request->password=='')
+        {
+            User::find(Auth::id())->update($request->except(['current_pass', 'password', 're_password', '_csrf']));
+        } else {
+            User::find(Auth::id())->update($request->except(['_csrf']));
+        }
+        $user = User::find(Auth::id());
+        return view('account.info', compact('user'));
+    }
+
+    public function register(Request $request){
+        return view('account.register');
+    }
+
+    public function postRegister(Request $request){
+
+            User::find(Auth::id())->update($request->except(['password', 're_password', '_csrf']));
+
+        $user = User::find(Auth::id());
+        return view('account.register');
+    }
+
 }

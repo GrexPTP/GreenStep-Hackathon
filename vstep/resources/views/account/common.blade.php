@@ -13,7 +13,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="{{ route('account.challenges') }}" class="btn btn-primary full-btn">Account Information</a>
+                <a href="{{ route('account.info') }}" class="btn btn-primary full-btn">Account Information</a>
             </div>
         </div>
     </div>
