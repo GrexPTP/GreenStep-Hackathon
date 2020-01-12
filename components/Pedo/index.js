@@ -12,6 +12,13 @@ export default class Pedo extends React.Component {
 
   componentDidMount() {
     this._subscribe();
+    const {totalStep} = 10
+    const {setComplete, finishStep} = this.props
+    if (totalStep <= this.state.currentStepCount) {
+      
+      setComplete(true)
+      
+  }  
   }
 
   componentWillUnmount() {
@@ -19,20 +26,16 @@ export default class Pedo extends React.Component {
   }
 
   _subscribe = () => {
-    const {totalStep} = this.state
-    const {setComplete, finishStep} = this.props
+    
 
     this._subscription = Pedometer.watchStepCount(result => {
+      
      
-        
+      
         this.setState({
-        currentStepCount: result.steps
-      });
-      if (result.steps >= totalStep) {
-        setComplete(true)
-        finishStep()
-        
-      }
+          currentStepCount: result.steps
+        });
+
     });
 
     Pedometer.isAvailableAsync().then(
@@ -73,7 +76,9 @@ export default class Pedo extends React.Component {
     //const {totalStep, distance} = this.props
     const {currentStepCount} = this.state
     return (
-      currentStepCount == totalStep ? <Button mode="text" onPress={() => console.log('lo')}>Turn back</Button>
+      currentStepCount >= totalStep ? <Button mode="text" onPress={() => {
+        fetch(`http://13.76.100.205/api/finish_step?user_id=${this.props.user_id}&event_id=${this.props.event_id}&total_steps=${this.state.currentStepCount}`)
+      }}>Finish</Button>
       : <View style={styles.container}>   
       <AnimatedProgressWheel
       size={120} 
@@ -83,6 +88,7 @@ export default class Pedo extends React.Component {
       progress={(currentStepCount / totalStep) * 100}
       backgroundColor={'pink'}/>
       <Text style={{color: 'grey', margin: 5}}>{`Step: ${currentStepCount}/${totalStep}`}</Text>
+    
      </View>
     );
   }
