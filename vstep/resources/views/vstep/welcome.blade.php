@@ -3,8 +3,7 @@
 
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
-        <h1 class="display-3">Welcome to VStep Challenge !</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+        <h1 class="display-3" style="text-align: center; font-weight: 500">Welcome to VStep Challenge !</h1>
     </header>
     <h1>Ranklist <span class="red-rank">January</span></h1>
     <!-- Page Features -->
@@ -22,19 +21,15 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>2400</td>
-                        </tr>
+                        @foreach ($ranking as $key => $rank)
+                            <tr>
+                                <th scope="row">{{ $rank->rank }}</th>
+                                <td>{{ App\User::find($rank->user_id)->name }}</td>
+                                <td>{{ $rank->challenges }}</td>
+                                <td>{{ $rank->total }}</td>
+                            </tr>
+                        @endforeach
 
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>1200</td>
-                        </tr>
 
 
                         </tbody>
@@ -55,11 +50,11 @@
                             @if ($events->count()>0)
                                 @php $hot_challenge = $events->first(); @endphp
                             <b class="card-title">{{ $hot_challenge->name }}<sup><small> {{ $hot_challenge->status }} </small></sup></b>
-                            <p class="card-text">{{ $hot_challenge->description }}</p>
-                            <a href="confirm-register.html" class="btn btn-primary">Register Now</a>
+                            <p class="card-text">{!! $hot_challenge->description !!}</p>
+                            <a href="{{ route('challenge.register', $hot_challenge->id ) }}" class="btn btn-primary">Register Now</a>
                             @else
                                 <p>Be the first <b>challenger</b> today ! </p>
-                                <a href="confirm-register.html" class="btn btn-primary">Register Now</a>
+                                <a href="{{ route('challenge.create') }}" class="btn btn-primary">Register Now</a>
                             @endif
                         </div>
                     </div>
@@ -74,7 +69,7 @@
     </div>
     <!-- /.row -->
 
-    <h2>Current or Upcoming Contests <sup><a href="create-challenge.html"><small>New Challenge</small></a></sup></h2>
+    <h2>Current or Upcoming Contests <a class="btn btn-success float-right" style="font-size: 21px;" href="{{ route('challenge.create') }}"><small>Create your own!</small></a></h2>
     <!-- Page Features -->
     <div class="row text-center">
         <div class="col-lg-12 col-md-12 mb-12">
@@ -86,24 +81,57 @@
                         <th scope="col">Challenger</th>
                         <th scope="col">Start</th>
                         <th scope="col">Type</th>
-                        <th scop="col"></th>
-                        <th scop="col"></th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Participants</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($events as $event)
+                        @php
+                            $event_start_date = $event->start_date;
+                            $event_start_time = $event->start_time;
+                            $event_end_date = $event->end_date;
+                            $event_end_time = $event->end_time;
+                            $start_time_str = $event_start_date." ".$event_start_time;
+                            $end_time_str = $event_end_date." ".$event_end_time;
+                            $start_date = Carbon\Carbon::parse($start_time_str);
+                            $end_date = Carbon\Carbon::parse($end_time_str);
+                            $now = Carbon\Carbon::now();
+                            $diff_start = $now>=$start_date;
+                            $diff_end = $now>=$end_date;
+                        @endphp
+                        @if ($diff_start==true && $event->status=="pending")
+                            @php
+
+                                $event->status="started";
+                                $event->save();
+                            @endphp
+                        @endif
+
+                        @if ($diff_end==true && $event->status=="started")
+                            @php
+                                $event->status="ended";
+                                $event->save();
+                                continue;
+                            @endphp
+                        @endif
+
                         <tr>
-                            <td><a href="{{ route('challenge.view', $event->id)  }}">{{ $event->name }}</a></td>
+                            @if ($event->status=="pending")
+                                <td><a href="{{ route('challenge.view', $event->id)  }}">{{ $event->name }}</a></td>
+                            @elseif ($event->status=="started")
+                                <td><a href="{{ route('challenge.view', $event->id)  }}">{{ $event->name }}</a></td>
+                            @endif
                             <td><b>{{ $event->creator->name }}</b></td>
                             <td>{{ Carbon\Carbon::parse($event->start_date)->format('M/d/Y') }}
                                 {{ Carbon\Carbon::parse($event->start_time)->format('H:i') }}<sup><small>UTC+7</small></sup></td>
-                            <td><a href="#">{{ '@'.$event->type }}</a></td>
+                            <td>{{ $event->type = 'step' ? 'Race to '.$event->step_amount : 'Run '.$event->distance.' km'}}</td>
                             @if ($event->status == 'pending')
-                                <td>@if($event->hasUser($my_account)) <span class="registered-color">registered</span> @else<b><i> <a href="{{ route('challenge.register', $event->id ) }}" class="register-color"> register @endif</a></i></b></td>
+                                <td>@if($event->hasUser($my_account)) <span class="registered-color">Registered</span> @else<b><i> <a href="{{ route('challenge.register', $event->id ) }}" class="register-color" style="text-decoration: none;"> register @endif</a></i></b></td>
                             @else
                                 <td><i>Running</i></td>
                             @endif
-                            <td><a href="#">x{{ $event->register_users()->get()->count() }}</a></td>
+                            <td>{{ $event->register_users()->get()->count() }}</td>
                         </tr>
                     @endforeach
 
@@ -113,9 +141,9 @@
                             <td><b>{{ $event->creator->name }}</b></td>
                             <td>{{ Carbon\Carbon::parse($event->start_date)->format('M/d/Y') }}
                                 {{ Carbon\Carbon::parse($event->start_time)->format('H:i') }}<sup><small>UTC+7</small></sup></td>
-                            <td><a href="#">{{ '@'.$event->type }}</a></td>
-                            <td><a href="#"><u>Final Standing</u></a></td>
-                            <td><a href="#">x{{ $event->register_users()->get()->count() }}</a></td>
+                            <td>{{ $event->type == 'step' ? 'Race to '.$event->step_amount : 'Run '.$event->distance.' km'}}</td>
+                            <td><a href="{{$event->type == 'step' ? route('challenge.view', $event->id) : route('challenge_marathon.view', $event->id)  }}" style="text-decoration: none;">Final Standing</a></td>
+                            <td>{{ $event->register_users()->get()->count() }}</td>
                         </tr>
                     @endforeach
 

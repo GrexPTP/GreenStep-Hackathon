@@ -18,7 +18,7 @@
                 $end_date = Carbon\Carbon::parse($end_time_str);
                 $now = Carbon\Carbon::now();
                 $diff_start = $now>=$start_date;
-                $diff = $now>=$end_date;
+                $diff = $now >= $end_date;
 
             @endphp
             @if ($register_users->count()>0)
@@ -42,7 +42,7 @@
                 <tr>
                     <th scope="col" style="width: 10%">Rank</th>
                     <th scope="col" style="width: 20%">User</th>
-                    <th scope="col" style="width: 60%">Challenge Target = {{ $event->step_amount }}</th>
+                    <th scope="col" style="width: 60%">Target: Run {{ $event->distance  }}</th>
 {{--                    <th scope="col" style="width: 10%">Longest</th>--}}
                 </tr>
                 </thead>
@@ -51,8 +51,8 @@
                 @foreach ($register_users as $key => $user)
                     @php
                         $user_step = $user->total_step;
-                        $target_step = $event->step_amount;
-                        $percent = $user_step*100/$target_step;
+                        $target_step = $event->distance;
+                        $result = $event->finish_time != null;
                         if ($key==0){
                             $titleColor = "first-color";
                         } elseif ($key==1){

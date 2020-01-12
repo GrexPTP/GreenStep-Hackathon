@@ -15,6 +15,9 @@ use Illuminate\Http\Request;
 
 use App\Event;
 use App\User;
+use App\Company;
+use App\Step;
+use Carbon\Carbon;
 
 Route::get('/login', function(Request $request){
     $user = User::where('email',$request->email)->first();
@@ -36,8 +39,10 @@ Route::get('/home',function(Request $request){
     return json_encode(array('newest' => array_values($newest),'feature' => array_values($feature)));
 });
 
-Route::get('/event/{id}', function($id){
-    return json_encode(Event::leftJoin('companies','events.company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->find($id));
+Route::get('/event/{id}', function(Request $request, $id){
+    $event = Event::leftJoin('companies','events.company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->find($id);
+    $event->joined = $event->belongsToMany('App\User','user_event','user_id','event_id')->where('id',$request->userID)->count() != 0;
+    return json_encode($event);
 });
 
 Route::get('/user/{id}', function($id){
@@ -54,6 +59,10 @@ Route::get('/my-events/{id}', function($id){
 
 Route::get('/join-events/{id}', function($id){
     return json_encode(User::find($id)->belongsToMany('App\Event','user_event','event_id','user_id')->leftJoin('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->get());
+});
+
+Route::get('/join-events/{user_id}/{event_id}', function($user_id,$event_id){
+    return json_encode(Event::find($event_id)->belongsToMany('App\User','user_event','user_id','event_id')->where('id',$user_id)->count() != 0);
 });
 
 Route::get('/event/create/{id}', function(Request $request, $id){
@@ -78,3 +87,46 @@ Route::get('/event/create/{id}', function(Request $request, $id){
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/finish_race',function(Request $request){
+    $user_id = $request->user_id;
+    $event_id = $request->event_id;
+    $start_long = $request->startLong;
+    $start_lat = $request->startLat;
+    $end_long = $request->endLong ?? 105.834160;
+    $end_lat = $request->endLat ?? 21.027763;
+    $result = distance($start_lat,$start_long,$end_lat,$end_long,"K");
+    return json_encode(array('result'=>$result < 0.001));
+});
+
+Route::get('/finish_step', function(Request $request){
+    $step = new Step;
+    $step->user_id = $request->user_id;
+    $step->event_id = $request->event_id;
+    $step->total_steps = $request->total_steps;
+    $step->finish_time = Carbon::now();
+    $step->save();
+    return json_encode(array('finish_time' => $step->finish_time->format('h:i:s')));
+});
+
+function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+    if (($lat1 == $lat2) && ($lon1 == $lon2)) {
+      return 0;
+    }
+    else {
+      $theta = $lon1 - $lon2;
+      $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+      $dist = acos($dist);
+      $dist = rad2deg($dist);
+      $miles = $dist * 60 * 1.1515;
+      $unit = strtoupper($unit);
+
+      if ($unit == "K") {
+        return ($miles * 1.609344);
+      } else if ($unit == "N") {
+        return ($miles * 0.8684);
+      } else {
+        return $miles;
+      }
+    }
+  }

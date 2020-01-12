@@ -22,6 +22,8 @@
 /*font color*/
 .register-color{
     color: #8e44ad;
+    background: yellow;
+    padding: 3px 10px 3px 10px;
 }
 
 .registered-color{
@@ -56,4 +58,8 @@
     padding: 15px;
     background: #e9ecef !important;
     color: #212529 !important;
+}
+
+.full-btn{
+    width: 100%;
 }
