@@ -37,7 +37,7 @@ Route::get('/home',function(Request $request){
 });
 
 Route::get('/event/{id}', function($id){
-    return json_encode(Event::join('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->find($id));
+    return json_encode(Event::leftJoin('companies','events.company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->find($id));
 });
 
 Route::get('/user/{id}', function($id){
@@ -45,15 +45,15 @@ Route::get('/user/{id}', function($id){
 });
 
 Route::get('/events',function(Request $request){
-    return json_encode(array_values(Event::all()->join('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->toArray()));
+    return json_encode(array_values(Event::leftJoin('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->get()->toArray()));
 });
 
 Route::get('/my-events/{id}', function($id){
-    return json_encode(User::find($id)->hasMany('App\Event','user_id')->join('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->get());
+    return json_encode(User::find($id)->hasMany('App\Event','user_id')->leftJoin('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->get());
 });
 
 Route::get('/join-events/{id}', function($id){
-    return json_encode(User::find($id)->belongsToMany('App\Event','user_event','event_id','user_id')->join('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->get());
+    return json_encode(User::find($id)->belongsToMany('App\Event','user_event','event_id','user_id')->leftJoin('companies','company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->get());
 });
 
 Route::get('/event/create/{id}', function(Request $request, $id){
