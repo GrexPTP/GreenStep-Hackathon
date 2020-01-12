@@ -13,6 +13,7 @@
 
 Route::get('/', 'VStepController@index')->name('home');
 Route::get('/challenge/{id}', 'VStepController@challenge')->name('challenge.view');
+Route::get('/challenge_marathon/{id}', 'VStepController@challenge_marathon')->name('challenge_marathon.view');
 Route::get('/challenge/{id}/register', 'VStepController@register')->name('challenge.register');
 Route::post('/challenge/{id}/register', 'VStepController@postRegister')->name('challenge.confirm');
 Route::get('/create/challenge', 'VStepController@create')->name('challenge.create');
