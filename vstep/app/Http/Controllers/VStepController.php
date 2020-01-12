@@ -61,6 +61,39 @@ class VStepController extends Controller
         return view('vstep.challenge', compact('event', 'register_users', 'my_account'));
     }
 
+    public function challenge_marathon($id){
+        $event = Event::find($id);
+        $register_users = $event->users()->get();
+        $event_start_date = $event->start_date;
+        $event_start_time = $event->start_time;
+        $event_end_date = $event->end_date;
+        $event_end_time = $event->end_time;
+        $start_time_str = $event_start_date." ".$event_start_time;
+        $end_time_str = $event_end_date." ".$event_end_time;
+        $start_date = Carbon::parse($start_time_str);
+        $end_date = Carbon::parse($end_time_str);
+        $now = Carbon::now();
+        $diff_start = $now>=$start_date;
+        $diff_end = $now>=$end_date;
+
+        if($diff_end==true){
+            if ($event->status=="started"){
+                $event->status="ended";
+                $event->addPoint();
+                $event->save();
+            }
+        }
+
+        foreach ($register_users as $user)
+        {
+            $userSteps = Step::where('event_id', $event->id)->where('user_id', $user->id)->get();
+            $user->finish_time = $userSteps->finish_time;
+        }
+        $register_users = $register_users->sortBy('finish_time')->values();
+        $my_account = User::find(Auth::id());
+        return view('vstep.challenge', compact('event', 'register_users', 'my_account'));
+    }
+
     public function register($id){
         $user_id = Auth::id();
         $even_id = $id;

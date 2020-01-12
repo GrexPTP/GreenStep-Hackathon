@@ -3,8 +3,7 @@
 
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
-        <h1 class="display-3">Welcome to VStep Challenge !</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+        <h1 class="display-3" style="text-align: center; font-weight: 500">Welcome to VStep Challenge !</h1>
     </header>
     <h1>Ranklist <span class="red-rank">January</span></h1>
     <!-- Page Features -->
@@ -70,7 +69,7 @@
     </div>
     <!-- /.row -->
 
-    <h2>Current or Upcoming Contests <sup><a href="{{ route('challenge.create') }}"><small>New Challenge</small></a></sup></h2>
+    <h2>Current or Upcoming Contests <a class="btn btn-success float-right" style="font-size: 21px;" href="{{ route('challenge.create') }}"><small>Create your own!</small></a></h2>
     <!-- Page Features -->
     <div class="row text-center">
         <div class="col-lg-12 col-md-12 mb-12">
@@ -82,8 +81,8 @@
                         <th scope="col">Challenger</th>
                         <th scope="col">Start</th>
                         <th scope="col">Type</th>
-                        <th scop="col"></th>
-                        <th scop="col"></th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Participants</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -126,13 +125,13 @@
                             <td><b>{{ $event->creator->name }}</b></td>
                             <td>{{ Carbon\Carbon::parse($event->start_date)->format('M/d/Y') }}
                                 {{ Carbon\Carbon::parse($event->start_time)->format('H:i') }}<sup><small>UTC+7</small></sup></td>
-                            <td><a href="#">{{ '@'.$event->type }}</a></td>
+                            <td>{{ $event->type = 'step' ? 'Race to '.$event->step_amount : 'Run '.$event->distance.' km'}}</td>
                             @if ($event->status == 'pending')
-                                <td>@if($event->hasUser($my_account)) <span class="registered-color">registered</span> @else<b><i> <a href="{{ route('challenge.register', $event->id ) }}" class="register-color"> register @endif</a></i></b></td>
+                                <td>@if($event->hasUser($my_account)) <span class="registered-color">Registered</span> @else<b><i> <a href="{{ route('challenge.register', $event->id ) }}" class="register-color" style="text-decoration: none;"> register @endif</a></i></b></td>
                             @else
                                 <td><i>Running</i></td>
                             @endif
-                            <td><a href="#">x{{ $event->register_users()->get()->count() }}</a></td>
+                            <td>{{ $event->register_users()->get()->count() }}</td>
                         </tr>
                     @endforeach
 
@@ -142,9 +141,9 @@
                             <td><b>{{ $event->creator->name }}</b></td>
                             <td>{{ Carbon\Carbon::parse($event->start_date)->format('M/d/Y') }}
                                 {{ Carbon\Carbon::parse($event->start_time)->format('H:i') }}<sup><small>UTC+7</small></sup></td>
-                            <td><a href="#">{{ '@'.$event->type }}</a></td>
-                            <td><a href="{{ route('challenge.view', $event->id)  }}"><u>Final Standing</u></a></td>
-                            <td><a href="#">x{{ $event->register_users()->get()->count() }}</a></td>
+                            <td>{{ $event->type == 'step' ? 'Race to '.$event->step_amount : 'Run '.$event->distance.' km'}}</td>
+                            <td><a href="{{$event->type == 'step' ? route('challenge.view', $event->id) : route('challenge_marathon.view', $event->id)  }}" style="text-decoration: none;">Final Standing</a></td>
+                            <td>{{ $event->register_users()->get()->count() }}</td>
                         </tr>
                     @endforeach
 

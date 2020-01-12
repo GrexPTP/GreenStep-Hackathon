@@ -96,7 +96,7 @@ Route::get('/finish_race',function(Request $request){
     $end_long = $request->endLong ?? 105.834160;
     $end_lat = $request->endLat ?? 21.027763;
     $result = distance($start_lat,$start_long,$end_lat,$end_long,"K");
-    return json_encode($result < 0.001);
+    return json_encode(array('result'=>$result < 0.001));
 });
 
 Route::get('/finish_step', function(Request $request){
