@@ -15,8 +15,11 @@
     <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/summernote/summernote-bs4.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/vstep.css">
+    <link rel="stylesheet" href="https://rawgit.com/gionkunz/chartist-js/master/dist/chartist.min.css">
+
     <!-- Custom styles for this template -->
     <link href="/assets/css/heroic-features.css" rel="stylesheet">
+    <link href="/assets/css/chart.css" rel="stylesheet">
 
 </head>
 
@@ -33,14 +36,10 @@
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><b>#1 <sup>2500</sup> </b></a>
+                    <a class="nav-link" href="#"><b>#{{ App\User::find(Auth::id())->getCurrentRank() }} <sup>{{ App\User::find(Auth::id())->getPoint() }}</sup> </b></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><b><span class="red-rank">@if (Auth::check()) {{ Auth::user()->name
-
-
-
-
                      }} @endif</span></b></a>
                 </li>
                 <li class="nav-item">
@@ -73,7 +72,6 @@
 <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/vendor/jquery/jquery.min.js"></script>
 <script src="/assets/summernote/summernote-bs4.js"></script>
-<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 @yield('js')
 

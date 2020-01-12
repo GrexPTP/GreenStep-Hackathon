@@ -11,7 +11,8 @@
 
 
                     <h4>Settings</h4>
-                    <form action="">
+                    <form action="{{ route('challenge.postCreate') }}" method="POST">
+                        @csrf
                         <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -63,25 +64,28 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="end_time">Description</label>
-                                <div class="summernote"></div>
+                                <textarea name="description" class="summernote"></textarea>
                             </div>
                         </div>
                         </div>
 
 
-                    </form>
+
 
                 </div>
                 <div class="card-footer text-center">
-                    <a href="standings.html" class="btn btn-primary">Create Challenge</a>
+                    <input type="submit" class="btn btn-primary" value="Create Challenge"></input>
                 </div>
             </div>
         </div>
+
+        </form>
 
 
 
 
     </div>
+    <br><br>
 @stop
 <!-- Footer -->
 

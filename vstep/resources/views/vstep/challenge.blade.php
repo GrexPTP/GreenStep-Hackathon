@@ -14,23 +14,35 @@
                 $event_end_time = $event->end_time;
                 $start_time_str = $event_start_date." ".$event_start_time;
                 $end_time_str = $event_end_date." ".$event_end_time;
+                $start_date = Carbon\Carbon::parse($start_time_str);
                 $end_date = Carbon\Carbon::parse($end_time_str);
                 $now = Carbon\Carbon::now();
-                $diff = $now>$end_date;
+                $diff_start = $now>=$start_date;
+                $diff = $now>=$end_date;
 
             @endphp
-            @if ($diff==true)
-                <div class="text-center">Challenge is over, <span class="first-color">{{ $register_users->first()->name }}</span> is winner !</div>
+            @if ($register_users->count()>0)
+                @if ($diff==true)
+                    <div class="text-center">Challenge is over, <span class="first-color">{{ $register_users->first()->name }}</span> is winner !</div>
+                @endif
             @endif
-
-            <div class="text-right">@if($diff==true)<span style="border-radius: 2px; border: 1px solid black;"><b> End </b>: {{ $end_date }} </span>@else <b>Time remaining <span id="timer"></span> @endif </b></div>
-
+            @if ($diff_start)
+                <div class="text-right">@if($diff==true)<span style="border-radius: 2px; border: 1px solid black;"><b> End </b>: {{ $end_date }} </span>@else <b>Time remaining <span id="timer"></span> @endif </b></div>
+            @else
+                @if(!$event->hasUser($my_account))
+                    <div class="text-right" style="margin-bottom: 10px"><a class="btn btn-sm btn-primary"  href="{{ route('challenge.register', $event->id) }}">Register Now</a></div>
+                @endif
+                <div class="card-header bg-success text-white d-flex" >
+                    <a href="#" class="text-white"><i class="fa-th"></i><b>Start: </b>{{ $start_date }}</a>
+                    <a href="#" class="text-white ml-auto"><b>End:</b>: {{ $end_date }}</a>
+                </div>
+            @endif
             <table class="table table-bordered">
                 <thead class="thead">
                 <tr>
                     <th scope="col" style="width: 10%">Rank</th>
                     <th scope="col" style="width: 20%">User</th>
-                    <th scope="col" style="width: 60%">Progress ({{ $event->step_amount }})</th>
+                    <th scope="col" style="width: 60%">Challenge Target = {{ $event->step_amount }}</th>
 {{--                    <th scope="col" style="width: 10%">Longest</th>--}}
                 </tr>
                 </thead>
