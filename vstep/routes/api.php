@@ -42,7 +42,7 @@ Route::get('/home',function(Request $request){
 
 Route::get('/event/{id}', function(Request $request, $id){
     $event = Event::leftJoin('companies','events.company_id','=','companies.id')->select('companies.name as company_name', 'events.*')->find($id);
-    $event->joined = $event->belongsToMany('App\User','user_event','user_id','event_id')->where('id',$request->userID)->count() != 0;
+    $event->joined = $event->belongsToMany('App\User','user_event','event_id','user_id')->where('id',$request->userID)->count() != 0;
     return json_encode($event);
 });
 
