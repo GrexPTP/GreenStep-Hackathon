@@ -28,7 +28,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('home') }}">Logo</a>
+        <a class="navbar-brand" href="{{ route('home') }}"><img style="height:50px" src="/assets/img/logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -70,7 +70,6 @@
 
 <script src="/assets/vendor/jquery/jquery.min.js"></script>
 <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/vendor/jquery/jquery.min.js"></script>
 <script src="/assets/summernote/summernote-bs4.js"></script>
 
 @yield('js')
