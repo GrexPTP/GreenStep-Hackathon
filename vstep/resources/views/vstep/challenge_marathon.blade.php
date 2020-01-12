@@ -52,7 +52,7 @@
                     @php
                         $user_step = $user->total_step;
                         $target_step = $event->distance;
-                        $result = $event->finish_time != null;
+                        $result = $user->finish_time != null;
                         if ($key==0){
                             $titleColor = "first-color";
                         } elseif ($key==1){
@@ -67,9 +67,8 @@
                         <th scope="row">{{ $key+1 }}</th>
                         <td class="{{ $titleColor }}">{{ $user['name'] }}</td>
                         <td>
-                            <div class="progress position-relative">
-                                <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100"></div>
-                                <small class="justify-content-center d-flex position-absolute w-100">{{ $user_step }} ({{ $percent }}%) complete</small>
+                            <div class="position-relative">
+                                {{ $result ? 'Finish at '.Carbon\Carbon::parse($user->finish_time)->format('h:i:s') : 'Not Finished'}}</h5>
                             </div>
                         </td>
 {{--                        <td>700</td>--}}

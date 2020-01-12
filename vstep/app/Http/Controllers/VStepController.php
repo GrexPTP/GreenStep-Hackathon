@@ -83,15 +83,18 @@ class VStepController extends Controller
                 $event->save();
             }
         }
-
         foreach ($register_users as $user)
         {
-            $userSteps = Step::where('event_id', $event->id)->where('user_id', $user->id)->get();
-            $user->finish_time = $userSteps->finish_time;
+            $userSteps = Step::where('event_id', $event->id)->where('user_id', $user->id)->first();
+
+            if ($userSteps)
+                $user->finish_time = $userSteps->finish_time;
+            else
+                $user->finish_time = null;
         }
-        $register_users = $register_users->sortBy('finish_time')->values();
+        $register_users = $register_users->sortByDesc('finish_time')->values();
         $my_account = User::find(Auth::id());
-        return view('vstep.challenge', compact('event', 'register_users', 'my_account'));
+        return view('vstep.challenge_marathon', compact('event', 'register_users', 'my_account'));
     }
 
     public function register($id){
