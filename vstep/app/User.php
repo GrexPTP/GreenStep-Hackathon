@@ -54,7 +54,7 @@ class User extends \TCG\Voyager\Models\User
         $current  = array_filter($this->ranking(), function($objects) use ($user_id){
             return $objects->user_id===$user_id;
         });
-        return (int)array_values($current)[0]->rank;
+        return (int)array_values($current) ? (int)array_values($current)[0]->rank : 'Unrank';
     }
 
     public function challengeRank($id){
