@@ -22,7 +22,7 @@ const MyEventsPage = ({navigation}) => {
         fetch(`http://13.76.100.205/api/my-events/${user.id}`)
         .then(response => response.json())
         .then(results => {
-          setUser(results)
+          setItems(results)
         })
     }, [])
     const GoToAdd = () => {

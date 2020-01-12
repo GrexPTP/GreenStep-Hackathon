@@ -40,6 +40,13 @@ const DetailPage = ({navigation}) => {
                             <Paragraph style={{fontSize:18}}>{`End Time: ${event.end_time ? event.end_time : 'Loading'}`}</Paragraph>
                           </Card.Content>
                         </Card>
+                        {event.company_name && <Card style={{margin: 10}}>
+                            <Card.Title title={'Sponsor'} titleStyle={{color: 'red'}}/>
+                            <Card.Content>
+                        <Paragraph>{event.company_name}</Paragraph>
+                            </Card.Content>
+                        </Card> }
+                        
                         <Card style={{height: 200,margin: 10}} >
                           <Card.Title title={'Detail Info'} titleStyle={{color: 'red'}} />
                           <Card.Content>
