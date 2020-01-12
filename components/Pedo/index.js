@@ -8,7 +8,6 @@ export default class Pedo extends React.Component {
     isPedometerAvailable: "checking",
     pastStepCount: 0,
     currentStepCount: 0,
-    totalStep : 1
   };
 
   componentDidMount() {
@@ -21,13 +20,19 @@ export default class Pedo extends React.Component {
 
   _subscribe = () => {
     const {totalStep} = this.state
-    const {setComplete} = this.props
+    const {setComplete, finishStep} = this.props
+
     this._subscription = Pedometer.watchStepCount(result => {
-      if (totalStep == result.steps)
-        setComplete(true)
+     
+        
         this.setState({
         currentStepCount: result.steps
       });
+      if (result.steps >= totalStep) {
+        setComplete(true)
+        finishStep()
+        
+      }
     });
 
     Pedometer.isAvailableAsync().then(
@@ -64,9 +69,11 @@ export default class Pedo extends React.Component {
     this._subscription = null;
   };
   render() {
-    const {currentStepCount, totalStep} = this.state
+    const totalStep = 10
+    //const {totalStep, distance} = this.props
+    const {currentStepCount} = this.state
     return (
-      currentStepCount == totalStep ? <Button mode="text" onPress={() => console.log('lo')}>Receive Coupon</Button>
+      currentStepCount == totalStep ? <Button mode="text" onPress={() => console.log('lo')}>Turn back</Button>
       : <View style={styles.container}>   
       <AnimatedProgressWheel
       size={120} 
