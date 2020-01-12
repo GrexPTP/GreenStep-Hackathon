@@ -39,6 +39,23 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="distance">Start Point</label>
+                                <input type="text" class="form-control" name="start_point" id="start_point" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="distance">End Point</label>
+                                <input type="text" class="form-control" name="end_point" id="end_point" readonly>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="start_date">Start Date</label>
                                 <input type="date" name="start_date" id="start_date" min="1000-01-01"
                                        max="3000-12-31" class="form-control">
@@ -73,6 +90,7 @@
 
 
                 </div>
+
                 <div class="card-footer text-center">
                     <input type="submit" class="btn btn-primary" value="Create Challenge"></input>
                 </div>
@@ -95,14 +113,51 @@
 <script>
     $(document).ready(function() {
         $("input[name=distance]").parent().toggle();
+        $("input[name=start_point]").parent().toggle();
+        $("input[name=end_point]").parent().toggle();
+        $("#myMap").toggle();
         $('.summernote').summernote({
             height: 300,
         });
         $('select[name=type]').change(function(){
             $("input[name=step_amount]").parent().toggle();
             $("input[name=distance]").parent().toggle();
+            $("input[name=start_point]").parent().toggle();
+            $("input[name=end_point]").parent().toggle();
+            $("#myMap").toggle();
         })
     });
 </script>
+
+<script type='text/javascript'>
+    var map;
+    function GetMap() {
+        map = new Microsoft.Maps.Map('#myMap', {});
+        //Add mouse events to the map.
+        Microsoft.Maps.Events.addHandler(map, 'dblclick', function(e){
+            var start_point = {};
+            var end_point = {};
+
+            var lat_p = e.location.latitude;
+            var long_p = e.location.longitude;
+            if ($("input[name=start_point]").val()==''){
+                start_point.x = lat_p;
+                start_point.y = long_p;
+                $("input[name=start_point]").val(JSON.stringify(start_point))
+                alert("Start Point Updated !");
+            } else {
+                end_point.x = lat_p;
+                end_point.y = long_p;
+                $("input[name=end_point]").val(JSON.stringify(end_point))
+                alert("End Point Updated !");
+            }
+            console.log(start_point);
+
+
+        });
+    }
+</script>
+<script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=Aspw2kePH6Rnv_SAUMfCVdOiKijNeGkNrn-JWwUt1GccN8AthoCDWsQu-7AURDGE' async defer></script>
+
 
 @stop
