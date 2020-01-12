@@ -84,3 +84,36 @@ Route::get('/event/create/{id}', function(Request $request, $id){
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/finish_race',function(Request $request){
+    $user_id = $request->user_id;
+    $event_id = $request->event_id;
+    $start_long = $request->startLong;
+    $start_lat = $request->startLat;
+    $end_long = $request->endLong;
+    $end_lat = $request->endLat;
+    $result = distance($start_lat,$start_long,$end_lat,$end_long,"K");
+    return json_encode($result < 0.001);
+});
+
+function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+    if (($lat1 == $lat2) && ($lon1 == $lon2)) {
+      return 0;
+    }
+    else {
+      $theta = $lon1 - $lon2;
+      $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+      $dist = acos($dist);
+      $dist = rad2deg($dist);
+      $miles = $dist * 60 * 1.1515;
+      $unit = strtoupper($unit);
+
+      if ($unit == "K") {
+        return ($miles * 1.609344);
+      } else if ($unit == "N") {
+        return ($miles * 0.8684);
+      } else {
+        return $miles;
+      }
+    }
+  }
