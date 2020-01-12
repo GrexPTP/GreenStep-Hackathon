@@ -15,6 +15,9 @@ use Illuminate\Http\Request;
 
 use App\Event;
 use App\User;
+use App\Company;
+use App\Step;
+use Carbon\Carbon;
 
 Route::get('/login', function(Request $request){
     $user = User::where('email',$request->email)->first();
@@ -94,6 +97,16 @@ Route::get('/finish_race',function(Request $request){
     $end_lat = $request->endLat ?? 21.027763;
     $result = distance($start_lat,$start_long,$end_lat,$end_long,"K");
     return json_encode($result < 0.001);
+});
+
+Route::get('/finish_step', function(Request $request){
+    $step = new Step;
+    $step->user_id = $request->user_id;
+    $step->event_id = $request->event_id;
+    $step->total_steps = $request->total_steps;
+    $step->finish_time = Carbon::now();
+    $step->save();
+    return json_encode($step->finish_time->format('h:i:s'));
 });
 
 function distance($lat1, $lon1, $lat2, $lon2, $unit) {
